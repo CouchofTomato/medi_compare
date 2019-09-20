@@ -44,6 +44,11 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rspec-rails', '~> 3.8'
   gem 'bullet', '~> 6.0.2'
+  gem 'guard'
+  gem 'guard-rspec', require: false
+  gem 'guard-bundler', require: false
+  gem 'guard-rubocop'
+  gem 'guard-rails', require: false
 end
 
 group :test do
