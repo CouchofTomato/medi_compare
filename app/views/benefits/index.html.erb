@@ -9,10 +9,10 @@
         </tr>
       </thead>
       <tbody id="benefit-list">
-        <% benefits.each do |benefit| %>
+        <% @benefits.each do |benefit| %>
           <tr>
-            <td><%= benefit.name %></td>
-            <td><%= benefit.category %></td>
+            <td><%= benefit.name.titleize %></td>
+            <td><%= benefit.category.titleize %></td>
           </tr>
         <% end %>
       </tbody>
