@@ -6,6 +6,16 @@ class BenefitsController < ApplicationController
     @benefit = Benefit.new
   end
 
+  def destroy
+    @benefit = Benefit.find(params[:id])
+    if @benefit.destroy
+      flash[:notice] = 'Benefit deleted!'
+    else
+      flash[:warning] = 'Benefit could not be deleted.'
+    end
+    redirect_to benefits_path
+  end
+
   private
 
   def benefit_params
