@@ -1,5 +1,5 @@
 class BenefitsController < ApplicationController
-  before_action :instantiate_benefit_categories, only: [:index, :create, :new, :edit]
+  before_action :instantiate_benefit_categories, only: [:index, :create, :new, :edit, :update]
 
   def index
     @benefits = Benefit.all
@@ -23,6 +23,17 @@ class BenefitsController < ApplicationController
 
   def edit
     @benefit = Benefit.find(params[:id])
+  end
+
+  def update
+    @benefit = Benefit.find(params[:id])
+    if @benefit.update(benefit_params)
+      flash[:notice] = 'Benefit Successfully Updated'
+      redirect_to benefits_path
+    else
+      flash[:warning] = 'Benefit could not be updated. If the problem persisters please contact support'
+      render :edit
+    end
   end
 
   def destroy
