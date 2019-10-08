@@ -10,6 +10,17 @@ class BenefitsController < ApplicationController
     @benefit = Benefit.new
   end
 
+  def create
+    @benefit = Benefit.new(benefit_params)
+    if @benefit.save
+      flash[:notice] = 'New Benefit Created!'
+      redirect_to benefits_path
+    else
+      flash[:warning] = 'Benefit could not be created. If the problem persists please contact support'
+      render :new
+    end
+  end
+
   def destroy
     @benefit = Benefit.find(params[:id])
     if @benefit.destroy
