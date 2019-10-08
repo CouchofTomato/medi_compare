@@ -1,0 +1,7 @@
+<div class="notification is_info">
+  <div id="flash_messages">
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "flash #{key}") %>
+    <% end %>
+  </div>
+</div>
