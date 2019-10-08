@@ -1,8 +1,12 @@
 class BenefitsController < ApplicationController
-  before_action :instantiate_benefit_categories, only: [:index, :create]
+  before_action :instantiate_benefit_categories, only: [:index, :create, :new]
 
   def index
     @benefits = Benefit.all
+    @benefit = Benefit.new
+  end
+
+  def new
     @benefit = Benefit.new
   end
 
