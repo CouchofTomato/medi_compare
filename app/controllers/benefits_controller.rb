@@ -1,5 +1,5 @@
 class BenefitsController < ApplicationController
-  before_action :instantiate_benefit_categories, only: [:index, :create, :new]
+  before_action :instantiate_benefit_categories, only: [:index, :create, :new, :edit]
 
   def index
     @benefits = Benefit.all
@@ -19,6 +19,10 @@ class BenefitsController < ApplicationController
       flash[:warning] = 'Benefit could not be created. If the problem persists please contact support'
       render :new
     end
+  end
+
+  def edit
+    @benefit = Benefit.find(params[:id])
   end
 
   def destroy
