@@ -1,2 +1,2 @@
 <%= render partial: 'shared/error_messages', locals: {object: @benefit} -%>
-<%= render @benefit %>
+<%= render partial: 'benefit', object: @benefit, locals: {heading: 'Edit Benefit'} %>
