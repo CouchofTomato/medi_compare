@@ -1,0 +1,25 @@
+<% if user_signed_in? %>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <%= link_to 'Home', root_path, class: 'navbar-item' %>
+        <%= link_to 'Benefits', benefits_path, class: 'navbar-item' %>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'button is-primary' %>
+        </div>
+      </div>
+    </div>
+  </nav>
+<% else %>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <%= link_to 'Sign In', new_user_session_path, class: 'button is-primary' %>
+        </div>
+      </div>
+    </div>
+  </nav>
+<% end %>
