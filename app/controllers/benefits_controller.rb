@@ -16,7 +16,7 @@ class BenefitsController < ApplicationController
       flash[:notice] = 'New Benefit Created!'
       redirect_to benefits_path
     else
-      flash[:warning] = 'Benefit could not be created. If the problem persists please contact support'
+      flash[:warning] = 'Benefit could not be created.'
       render :new
     end
   end
@@ -31,7 +31,7 @@ class BenefitsController < ApplicationController
       flash[:notice] = 'Benefit Successfully Updated'
       redirect_to benefits_path
     else
-      flash[:warning] = 'Benefit could not be updated. If the problem persisters please contact support'
+      flash[:warning] = 'Benefit could not be updated.'
       render :edit
     end
   end
