@@ -3,6 +3,9 @@
     <div class="card column is-one-third is-offset-one-third">
       <div class="card-content login">
         <h1 class="title is-2"><%= heading %></h1>
+        <div>
+          <%= render partial: 'shared/error_messages', locals: {object: benefit} -%>
+        </div>
         <%= form_with model: benefit, local: true do |form| %>
           <div class="field">
             <%= form.label :name, class: 'label' %>
