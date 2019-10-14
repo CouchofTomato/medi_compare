@@ -11,5 +11,20 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe BenefitsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'sort_by_category_and_name' do
+      let(:benefits) {[
+        {name: 'Surgery', category: 'inpatient'},
+        {name: 'Consultations', category: 'outpatient'},
+        {name: 'Accomodation', category: 'inpatient'}
+      ]}
+
+      let(:sorted_benefits) {[
+        {name: 'Accomodation', category: 'inpatient'},
+        {name: 'Surgery', category: 'inpatient'},
+        {name: 'Consultations', category: 'outpatient'}
+      ]}
+    it 'sorts an array of hashes first by category and then by name' do
+      expect(helper.sort_by_category_and_name(benefits)).to eq(sorted_benefits)
+    end
+  end
 end
