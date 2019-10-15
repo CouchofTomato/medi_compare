@@ -1,4 +1,5 @@
 class BenefitsController < ApplicationController
+  before_action :authenticate_user!
   before_action :instantiate_benefit_categories, only: [:index, :create, :new, :edit, :update]
 
   def index
