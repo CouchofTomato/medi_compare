@@ -10,7 +10,7 @@
         </tr>
       </thead>
       <tbody id="benefit-list">
-        <% @benefits.each do |benefit| %>
+        <% sort_by_category_and_name(@benefits).each do |benefit| %>
           <tr>
             <td><%= benefit.name.titleize %></td>
             <td><%= benefit.category.titleize %></td>
