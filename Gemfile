@@ -60,6 +60,7 @@ group :test do
   gem 'simplecov-lcov'
   gem 'undercover'
   gem 'shoulda-matchers'
+  gem 'factory_bot_rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
