@@ -12,7 +12,8 @@ class Benefit < ApplicationRecord
       optical
       additional
   ].freeze
-  
+
+  before_save { self.name.downcase! }
   validates :name, :category, presence: true
   validates_uniqueness_of :name, scope: :category, message: 'Benefit already exists'
   validates_inclusion_of :category, in: CATEGORY_NAMES

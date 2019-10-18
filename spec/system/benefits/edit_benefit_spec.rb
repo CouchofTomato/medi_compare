@@ -13,7 +13,7 @@ RSpec.describe 'editing a benefit', type: :system do
 
   it 'allows a user to edit a benefit name' do
     visit benefits_path
-    find('#edit-Accomodation-inpatient').click
+    find('#edit-accomodation-inpatient').click
     fill_in 'benefit[name]', with: 'Medicines'
     click_on 'Submit'
     expect(page).to have_content 'Benefit Successfully Updated'
@@ -22,7 +22,7 @@ RSpec.describe 'editing a benefit', type: :system do
 
   it 'allows a user to edit a benefit category' do
     visit benefits_path
-    find('#edit-Accomodation-inpatient').click
+    find('#edit-accomodation-inpatient').click
     select 'Outpatient', from: 'benefit[category]'
     click_on 'Submit'
     expect(page).to have_content 'Benefit Successfully Updated'
@@ -30,7 +30,7 @@ RSpec.describe 'editing a benefit', type: :system do
 
   it 'doesn\'t allow a user to update a benefit name as an empty string' do
     visit benefits_path
-    find('#edit-Accomodation-inpatient').click
+    find('#edit-accomodation-inpatient').click
     fill_in 'benefit[name]', with: ''
     click_on 'Submit'
     expect(page).to have_content 'Benefit could not be updated.'
