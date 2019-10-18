@@ -14,8 +14,8 @@ RSpec.describe 'deleting a benefit', type: :system, js: true do
   it 'allows a benefit to be deleted from the benefits index page' do
     visit benefits_path
     page.accept_confirm do
-      click_link('delete_Accomodation-inpatient')
+      find('#delete-Accomodation-inpatient').click
     end
-    expect(page).to have_content 'Benefits deleted!'
+    expect(page).to have_content 'Benefit deleted!'
   end
 end
