@@ -15,7 +15,7 @@
             <td><%= benefit.name.titleize %></td>
             <td><%= benefit.category.titleize %></td>
             <td>
-              <%= link_to edit_benefit_path(benefit) do %>
+              <%= link_to edit_benefit_path(benefit), id: "edit-#{benefit.name}-#{benefit.category}" do %>
                 <span class="icon"><i class="fas fa-edit alt"></i></span>
               <% end %>
             </td>
