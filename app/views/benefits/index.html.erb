@@ -20,7 +20,7 @@
               <% end %>
             </td>
             <td>
-              <%= link_to benefit_path(benefit), method: :delete, data: {confirm: 'Are you sure you want to delete this benefit?'} do %>
+              <%= link_to benefit_path(benefit), method: :delete, id: "delete-#{benefit.name}-#{benefit.category}", data: {confirm: 'Are you sure you want to delete this benefit?'} do %>
                 <span class="icon"><i class="fas fa-trash-alt"></i></span>
               <% end %>
             </td>

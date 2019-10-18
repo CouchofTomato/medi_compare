@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'adding a new Benefit', type: :system do
-  before :each do
+  before :example do
     user = create(:user)
     login_as(user, scope: :user)
   end
