@@ -15,6 +15,6 @@ class Benefit < ApplicationRecord
 
   before_save { self.name.downcase! }
   validates :name, :category, presence: true
-  validates_uniqueness_of :name, scope: :category, case_sensitive: false, message: 'Benefit already exists'
+  validates_uniqueness_of :name, scope: :category, case_sensitive: false, message: 'with that category already exists'
   validates_inclusion_of :category, in: CATEGORY_NAMES
 end
