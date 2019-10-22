@@ -17,5 +17,9 @@ RSpec.describe Benefit, type: :model do
     it 'returns the Benefits whose name or category matches the method argument' do
       expect(Benefit.search(search_term)).to match_array(filtered_benefits)
     end
+
+    it 'returns all Benefits if the search_term is nil' do
+      expect(Benefit.search(nil)).to match_array(Benefit.all)
+    end
   end
 end

@@ -1,7 +1,19 @@
 <section class="section">
   <div class="container">
     <h1 class="title is-1">Benefits</h1>
-    <%= link_to "Add New Benefit", new_benefit_path, class: 'button is-link' %>
+    <div class="field">
+      <%= link_to "Add New Benefit", new_benefit_path, class: 'button is-link' %>
+    </div>
+    <%= form_with url: benefits_path, method: :get, local: true do |form| %>
+      <div class="field has-addons">
+        <div class="control">
+          <%= form.text_field :search, placeholder: 'Filter benefits...', class: 'input' %>
+        </div>
+        <div class="control">
+          <%= form.submit 'Search', class: 'button is-primary' %>
+        </div>
+      </div>
+    <% end %>
     <table class="table">
       <thead>
         <tr>

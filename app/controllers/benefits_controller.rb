@@ -3,7 +3,7 @@ class BenefitsController < ApplicationController
   before_action :instantiate_benefit_categories, only: [:index, :create, :new, :edit, :update]
 
   def index
-    @benefits = Benefit.all
+    @benefits = Benefit.search(params[:search])
     @benefit = Benefit.new
   end
 
