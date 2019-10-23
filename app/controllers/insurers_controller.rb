@@ -1,4 +1,6 @@
 class InsurersController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @insurers = Insurer.search(params[:search])
     @insurer = Insurer.new
