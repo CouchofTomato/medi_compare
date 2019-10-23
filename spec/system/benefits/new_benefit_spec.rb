@@ -24,7 +24,7 @@ RSpec.describe 'adding a new Benefit', type: :system do
     select 'Maternity', from: 'benefit[category]'
     click_on 'Submit'
     expect(page).to have_content 'Benefit could not be created.'
-    expect(page).to have_content 'Name Benefit already exists'
+    expect(page).to have_content 'Name with that category already exists'
   end
 
   it 'does not allow a benefit to be created without a name' do
