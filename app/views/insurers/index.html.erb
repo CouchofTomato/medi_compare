@@ -31,7 +31,7 @@
                 <% end %>
               </td>
               <td>
-                <%= link_to insurer_path(insurer), method: :delete, id: "delete-#{insurer.name}", data: {confirm: 'Are you sure you want to delete this insurer?'} do %>
+                <%= link_to insurer_path(insurer), method: :delete, id: "delete-#{insurer.name.downcase.gsub(' ', '-')}", data: {confirm: 'Are you sure you want to delete this insurer?'} do %>
                   <span class="icon"><i class="fas fa-trash-alt"></i></span>
                 <% end %>
               </td>

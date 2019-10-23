@@ -39,9 +39,9 @@ class InsurersController < ApplicationController
   def destroy
     @insurer = Insurer.find(params[:id])
     if @insurer.destroy
-      flash[:notice] = 'Benefit deleted!'
+      flash[:notice] = 'Insurer deleted!'
     else
-      flash[:warning] = 'Benefit could not be deleted.'
+      flash[:warning] = 'Insurer could not be deleted.'
     end
     redirect_to insurers_path
   end
