@@ -22,7 +22,7 @@
           </tr>
         </thead>
         <tbody id="insurer-list">
-          <% @insurers.sort do |insurer| %>
+          <% @insurers.sort.each do |insurer| %>
             <tr data-target="filter.filterable" data-filter-key='<%= "#{insurer.name}".downcase %>'>
               <td><%= insurer.name.titleize %></td>
               <td>
