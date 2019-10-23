@@ -19,6 +19,21 @@ class InsurersController < ApplicationController
     end
   end
 
+  def edit
+    @insurer = Insurer.find(params[:id])
+  end
+
+  def update
+    @insurer = Insurer.find(params[:id])
+    if @insurer.update(insurer_params)
+      flash[:notice] = 'Insurer Successfully Updated'
+      redirect_to insurers_path
+    else
+      flash.now[:warning] = 'Insurer could not be updated.'
+      render :edit
+    end
+  end
+
   private
 
   def insurer_params

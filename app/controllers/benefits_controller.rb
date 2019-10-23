@@ -32,7 +32,7 @@ class BenefitsController < ApplicationController
       flash[:notice] = 'Benefit Successfully Updated'
       redirect_to benefits_path
     else
-      flash[:warning] = 'Benefit could not be updated.'
+      flash.now[:warning] = 'Benefit could not be updated.'
       render :edit
     end
   end
