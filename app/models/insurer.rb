@@ -1,5 +1,6 @@
 class Insurer < ApplicationRecord
   validates :name, presence: true
+  has_many :products
 
   def self.search(search_term)
     if search_term

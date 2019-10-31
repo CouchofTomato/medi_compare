@@ -21,6 +21,11 @@ class InsurersController < ApplicationController
     end
   end
 
+  def show
+    @insurer = Insurer.find(params[:id])
+    @products = @insurer.products
+  end
+
   def edit
     @insurer = Insurer.find(params[:id])
   end

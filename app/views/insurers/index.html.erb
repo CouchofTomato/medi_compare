@@ -24,7 +24,11 @@
         <tbody id="insurer-list">
           <% @insurers.sort.each do |insurer| %>
             <tr data-target="filter.filterable" data-filter-key='<%= "#{insurer.name}".downcase %>'>
-              <td><%= insurer.name.titleize %></td>
+              <td>
+                <%= link_to insurer_path(insurer) do %>
+                  <%= insurer.name.titleize %>
+                <% end %>
+              </td>
               <td>
                 <%= link_to edit_insurer_path(insurer), id: "edit-#{kebab_case(insurer.name)}" do %>
                   <span class="icon"><i class="fas fa-edit alt"></i></span>
