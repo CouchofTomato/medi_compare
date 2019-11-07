@@ -6,7 +6,7 @@
         <div>
           <%= render partial: 'shared/error_messages', locals: {object: insurer} -%>
         </div>
-        <%= form_with model: insurer, local: true do |form| %>
+        <%= form_with model: product, url: [insurer, product], local: true do |form| %>
           <div class="field">
             <%= form.label :name, class: 'label' %>
             <div class="control">
