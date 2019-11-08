@@ -4,9 +4,9 @@
       <div class="card-content">
         <h1 class="title is-2"><%= heading %></h1>
         <div>
-          <%= render partial: 'shared/error_messages', locals: {object: insurer} -%>
+          <%= render partial: 'shared/error_messages', locals: {object: product} -%>
         </div>
-        <%= form_with model: product, url: [insurer, product], local: true do |form| %>
+        <%= form_with model: product, local: true do |form| %>
           <div class="field">
             <%= form.label :name, class: 'label' %>
             <div class="control">

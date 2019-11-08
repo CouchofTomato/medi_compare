@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :benefits
   resources :insurers do
-    resource :products
+    resources :products, shallow: true
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

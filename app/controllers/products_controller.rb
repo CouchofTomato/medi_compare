@@ -16,6 +16,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+    @insurer = Insurer.find(params[:insurer_id])
+    @product = Product.find(params[:id])
+  end
+
   private
 
   def product_params
