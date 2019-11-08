@@ -21,6 +21,18 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def update
+    @product = Product.find(params[:id])
+    @insurer = @product.insurer
+    if @product.update(product_params)
+      flash[:notice] = 'Product Successfully Updated'
+      redirect_to insurer_path(@insurer)
+    else
+      flash.now[:warning] = 'Product could not be updated'
+      render :edit
+    end
+  end
+
   private
 
   def product_params
