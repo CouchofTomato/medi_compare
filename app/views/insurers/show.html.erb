@@ -5,7 +5,7 @@
       <%= link_to "Add New Product", new_insurer_product_path(@insurer), class: 'button is-link' %>
     </div>
     <div data-controller="filter">
-      <%= form_with url: insurer_products_path(@insurer), method: :get, local: true do |form| %>
+      <%= form_with url: insurer_path(@insurer), method: :get, local: true do |form| %>
         <div class="field has-addons">
           <div class="control">
             <%= form.text_field :search, placeholder: 'Filter products...', data: {target: 'filter.source', action: 'input->filter#filter'}, class: 'input filter' %>
