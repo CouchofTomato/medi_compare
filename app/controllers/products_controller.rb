@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
     @insurer = Insurer.find(params[:insurer_id])
     @product = @insurer.products.build(product_params)
     if @product.save
-      flash[:notice] = 'Product created'
+      flash[:notice] = 'New Product Created!'
       redirect_to insurer_path(@insurer)
     else
       flash.now[:warning] = 'Product could not be created'
