@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :benefit do
-    name { Surgery }
+    name { 'Surgery' }
     category { 'inpatient' }
   end
 end
