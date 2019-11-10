@@ -5,7 +5,6 @@ export default class extends Controller {
 
   filter(event) {
     let lowerCaseFilterTerm = this.sourceTarget.value.toLowerCase()
-    console.log(this.filterableTargets)
 
     this.filterableTargets.forEach((el, i) => {
       let filterableKey = el.getAttribute("data-filter-key")

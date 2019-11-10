@@ -15,34 +15,34 @@
           </div>
         </div>
       <% end %>
-    </div>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Name</th>
-        </tr>
-      </thead>
-      <tbody id="product-list">
-        <% @products.each do |product| %>
-          <tr data-target="filter.filterable" data-filter-key='<%= "#{product.name}".downcase %>'>
-            <td>
-              <%= link_to insurer_products_path(@insurer, product) do %>
-                <%= product.name.titleize %>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to edit_insurer_product_path(@insurer, product), id: "edit-#{kebab_case(product.name)}" do %>
-                <span class="icon"><i class="fas fa-edit alt"></i></span>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to insurer_product_path(@insurer, product), method: :delete, id: "delete-#{kebab_case(product.name)}", data: {confirm: 'Are you sure you want to delete this product?'} do %>
-                <span class="icon"><i class="fas fa-trash-alt"></i></span>
-              <% end %>
-            </td>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody id="product-list">
+          <% @products.each do |product| %>
+            <tr data-target="filter.filterable" data-filter-key='<%= "#{product.name}".downcase %>'>
+              <td>
+                <%= link_to insurer_products_path(@insurer, product) do %>
+                  <%= product.name.titleize %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to edit_insurer_product_path(@insurer, product), id: "edit-#{kebab_case(product.name)}" do %>
+                  <span class="icon"><i class="fas fa-edit alt"></i></span>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to insurer_product_path(@insurer, product), method: :delete, id: "delete-#{kebab_case(product.name)}", data: {confirm: 'Are you sure you want to delete this product?'} do %>
+                  <span class="icon"><i class="fas fa-trash-alt"></i></span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>

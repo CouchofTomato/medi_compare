@@ -11,6 +11,9 @@ DA:1,1
 DA:2,1
 DA:3,0
 end_of_record
+SF:./app/helpers/products_helper.rb
+DA:1,1
+end_of_record
 SF:./app/helpers/static_pages_helper.rb
 DA:1,1
 end_of_record
@@ -30,6 +33,7 @@ end_of_record
 SF:./app/models/product.rb
 DA:1,1
 DA:2,1
+DA:3,1
 end_of_record
 SF:./app/models/user.rb
 DA:1,1
