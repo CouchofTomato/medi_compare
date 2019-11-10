@@ -24,6 +24,7 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     @insurer = @product.insurer
+
     if @product.update(product_params)
       flash[:notice] = 'Product Successfully Updated'
       redirect_to insurer_path(@insurer)
@@ -31,6 +32,18 @@ class ProductsController < ApplicationController
       flash.now[:warning] = 'Product could not be updated'
       render :edit
     end
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @insurer = @product.insurer
+
+    if @product.destroy
+      flash[:notice] = 'Product deleted!'
+    else
+      flash[:warning] = 'Product could not be deleted.'
+    end
+    redirect_to insurer_path(@insurer)
   end
 
   private
