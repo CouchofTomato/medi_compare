@@ -25,7 +25,7 @@
           <% @products.each do |product| %>
             <tr data-target="filter.filterable" data-filter-key='<%= "#{product.name}".downcase %>'>
               <td>
-                <%= link_to insurer_products_path(@insurer, product) do %>
+                <%= link_to insurer_product_path(@insurer, product) do %>
                   <%= product.name.titleize %>
                 <% end %>
               </td>
