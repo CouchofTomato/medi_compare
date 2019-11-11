@@ -1,0 +1,20 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title is-1"><%= @product.name %></h1>
+    <div class="field">
+      <%= link_to "Add New Module", new_products_product_module_path(@product), class: 'button is-link' %>
+    </div>
+    <div data-controller="filter">
+      <%= form_with url: product_path(@product), method: :get, local: true do |form| %>
+        <div class="field has-addons">
+          <div class="control">
+            <%= form.text_field :search, placeholder: 'Filter Modules...', data: {target: 'input->filter#filter'}, class: 'input filter' %>
+          </div>
+          <div class="control">
+            <%= form.submit 'Search', class: 'button is-primary' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

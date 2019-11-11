@@ -21,6 +21,10 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def show
+    @product = Product.find(params[:id])
+  end
+
   def update
     @product = Product.find(params[:id])
     @insurer = @product.insurer
