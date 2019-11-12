@@ -11,5 +11,25 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe ProductsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#group_by_category' do
+    before :example do
+      create(:product_module, name: 'Essential', category: 'core')
+      create(:product_module, name: 'Classic', category: 'core')
+      create(:product_module, name: 'Evacuation', category: 'evacuation_and_repatriation')
+    end
+
+    let(:input) { ProductModule.all }
+
+    it 'returns a hash of objects grouped by their category' do
+      expect(helper.group_by_category(input)).to match(
+        'core' => a_collection_including(
+          an_object_having_attributes(name: 'Essential'),
+          an_object_having_attributes(name: 'Classic'),
+        ),
+        'evacuation_and_repatriation' => a_collection_including(
+          an_object_having_attributes(name: 'Evacuation')
+        )
+      )
+    end
+  end
 end
