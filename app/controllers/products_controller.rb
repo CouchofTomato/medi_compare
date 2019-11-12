@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :instantiate_benefit_module_categories, only: [:show]
+
   def new
     @insurer = Insurer.find(params[:insurer_id])
     @product = Product.new
@@ -23,6 +25,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @product_modules = @product.product_modules
   end
 
   def update
@@ -54,5 +57,9 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name)
+  end
+
+  def instantiate_benefit_module_categories
+    @product_module_categories = ProductModule::CATEGORY_NAMES
   end
 end
