@@ -622,98 +622,12 @@
       "/home/austin/Projects/medi_compare/app/helpers/products_helper.rb": [
         1,
         1,
-        1,
+        0,
         null,
         null
       ],
       "/home/austin/Projects/medi_compare/app/helpers/static_pages_helper.rb": [
         1,
-        null
-      ],
-      "/home/austin/Projects/medi_compare/app/controllers/products_controller.rb": [
-        1,
-        1,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        0,
-        null,
-        0,
-        null,
-        null,
-        1,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null
-      ],
-      "/home/austin/Projects/medi_compare/app/controllers/application_controller.rb": [
-        1,
-        null
-      ],
-      "/home/austin/Projects/medi_compare/app/models/product.rb": [
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        2,
-        1,
-        null,
-        1,
-        null,
-        null,
         null
       ],
       "/home/austin/Projects/medi_compare/app/models/product_module.rb": [
@@ -735,7 +649,8 @@
         1,
         null
       ],
-      "/home/austin/Projects/medi_compare/app/models/insurer.rb": [
+      "/home/austin/Projects/medi_compare/app/models/product.rb": [
+        1,
         1,
         1,
         1,
@@ -750,6 +665,6 @@
         null
       ]
     },
-    "timestamp": 1573678397
+    "timestamp": 1573678536
   }
 }

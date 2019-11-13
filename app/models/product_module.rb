@@ -6,7 +6,7 @@ class ProductModule < ApplicationRecord
       medicines_and_appliances
       wellness
       maternity
-      dental & optical
+      dental_and_optical
       evacuation_and_repatriation
     ].freeze
 
