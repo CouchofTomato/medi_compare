@@ -15,7 +15,7 @@
           </div>
         </div>
       <% end %>
-      <% @product_module_categories.each do |module_category| %>
+      <% present_product_module_categories(@product_module_categories, @product_modules).each do |module_category| %>
         <h3 class="title is-3"><%= module_category %></h3>
         <% group_by_category(@product_modules)[module_category].each do |product_module| %>
           <div class="columns is_multiline">
