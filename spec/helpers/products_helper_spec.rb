@@ -11,14 +11,24 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe ProductsHelper, type: :helper do
+  before do
+    create(:product_module, name: 'Essential', category: 'core')
+    create(:product_module, name: 'Classic', category: 'core')
+    create(:product_module, name: 'Evacuation', category: 'evacuation_and_repatriation')
+  end
+
+  let(:input) { ProductModule.all }
+  let(:product_module_categories) { ProductModule::CATEGORY_NAMES }
+
   describe '#group_by_category' do
-    before :example do
+    before do
       create(:product_module, name: 'Essential', category: 'core')
       create(:product_module, name: 'Classic', category: 'core')
       create(:product_module, name: 'Evacuation', category: 'evacuation_and_repatriation')
     end
 
     let(:input) { ProductModule.all }
+    let(:product_module_categories) { ProductModule::CATEGORY_NAMES }
 
     it 'returns a hash of objects grouped by their category' do
       expect(helper.group_by_category(input)).to match(
@@ -30,6 +40,13 @@ RSpec.describe ProductsHelper, type: :helper do
           an_object_having_attributes(name: 'Evacuation')
         )
       )
+    end
+  end
+
+  describe '#present_product_module_categories' do
+    it 'returns an array of categories that exist in @product_modules' do
+      expect(helper.present_product_module_categories(product_module_categories, input))
+        .to match_array(['core', 'evacuation_and_repatriation'])
     end
   end
 end
