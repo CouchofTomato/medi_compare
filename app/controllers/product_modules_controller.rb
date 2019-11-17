@@ -1,0 +1,2 @@
+class ProductModulesController < ApplicationController
+end
