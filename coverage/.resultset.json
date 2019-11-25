@@ -1,14 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/config/environment.rb": [
+      "/home/austin/Projects/medi_compare/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/config/application.rb": [
+      "/home/austin/Projects/medi_compare/config/application.rb": [
         1,
         null,
         1,
@@ -45,13 +45,13 @@
         null,
         null
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/config/boot.rb": [
+      "/home/austin/Projects/medi_compare/config/boot.rb": [
         1,
         null,
         1,
         1
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/config/environments/test.rb": [
+      "/home/austin/Projects/medi_compare/config/environments/test.rb": [
         null,
         null,
         null,
@@ -101,7 +101,7 @@
         null,
         null
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/config/initializers/application_controller_renderer.rb": [
+      "/home/austin/Projects/medi_compare/config/initializers/application_controller_renderer.rb": [
         null,
         null,
         null,
@@ -111,7 +111,7 @@
         null,
         null
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/config/initializers/assets.rb": [
+      "/home/austin/Projects/medi_compare/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -127,7 +127,7 @@
         null,
         null
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/config/initializers/backtrace_silencers.rb": [
+      "/home/austin/Projects/medi_compare/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -136,7 +136,7 @@
         null,
         null
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/config/initializers/content_security_policy.rb": [
+      "/home/austin/Projects/medi_compare/config/initializers/content_security_policy.rb": [
         null,
         null,
         null,
@@ -168,14 +168,14 @@
         null,
         null
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/config/initializers/cookies_serializer.rb": [
+      "/home/austin/Projects/medi_compare/config/initializers/cookies_serializer.rb": [
         null,
         null,
         null,
         null,
         1
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/config/initializers/devise.rb": [
+      "/home/austin/Projects/medi_compare/config/initializers/devise.rb": [
         null,
         null,
         null,
@@ -525,13 +525,13 @@
         null,
         null
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/config/initializers/filter_parameter_logging.rb": [
+      "/home/austin/Projects/medi_compare/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/config/initializers/inflections.rb": [
+      "/home/austin/Projects/medi_compare/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -549,13 +549,13 @@
         null,
         null
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/config/initializers/mime_types.rb": [
+      "/home/austin/Projects/medi_compare/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/config/initializers/wrap_parameters.rb": [
+      "/home/austin/Projects/medi_compare/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -571,7 +571,7 @@
         null,
         null
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/config/routes.rb": [
+      "/home/austin/Projects/medi_compare/config/routes.rb": [
         1,
         1,
         null,
@@ -588,7 +588,7 @@
         null,
         null
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/app/models/user.rb": [
+      "/home/austin/Projects/medi_compare/app/models/user.rb": [
         1,
         null,
         null,
@@ -596,30 +596,37 @@
         null,
         null
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/app/models/application_record.rb": [
+      "/home/austin/Projects/medi_compare/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/app/helpers/application_helper.rb": [
-        1,
-        null
-      ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/app/helpers/benefits_helper.rb": [
+      "/home/austin/Projects/medi_compare/app/helpers/application_helper.rb": [
         1,
         1,
         0,
         null,
         null
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/app/helpers/insurers_helper.rb": [
+      "/home/austin/Projects/medi_compare/app/helpers/benefits_helper.rb": [
         1,
         1,
-        0,
+        50,
         null,
         null
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/app/helpers/products_helper.rb": [
+      "/home/austin/Projects/medi_compare/app/helpers/insurers_helper.rb": [
+        1,
+        1,
+        172,
+        null,
+        null
+      ],
+      "/home/austin/Projects/medi_compare/app/helpers/product_modules_helper.rb": [
+        1,
+        null
+      ],
+      "/home/austin/Projects/medi_compare/app/helpers/products_helper.rb": [
         null,
         null,
         1,
@@ -640,11 +647,263 @@
         null,
         null
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/app/helpers/static_pages_helper.rb": [
+      "/home/austin/Projects/medi_compare/app/helpers/static_pages_helper.rb": [
         1,
         null
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/app/models/product_module.rb": [
+      "/home/austin/Projects/medi_compare/app/controllers/benefits_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        9,
+        9,
+        null,
+        null,
+        1,
+        3,
+        null,
+        null,
+        1,
+        3,
+        3,
+        1,
+        1,
+        null,
+        2,
+        2,
+        null,
+        null,
+        null,
+        1,
+        3,
+        null,
+        null,
+        1,
+        3,
+        3,
+        2,
+        2,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        0,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        6,
+        null,
+        null,
+        1,
+        21,
+        null,
+        null
+      ],
+      "/home/austin/Projects/medi_compare/app/controllers/application_controller.rb": [
+        1,
+        null
+      ],
+      "/home/austin/Projects/medi_compare/app/controllers/insurers_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        7,
+        7,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        2,
+        2,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        8,
+        8,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        2,
+        2,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        0,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        4,
+        null,
+        null
+      ],
+      "/home/austin/Projects/medi_compare/app/controllers/product_modules_controller.rb": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null
+      ],
+      "/home/austin/Projects/medi_compare/app/controllers/products_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        2,
+        2,
+        null,
+        null,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        2,
+        2,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        2,
+        2,
+        null,
+        2,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        0,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        4,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/home/austin/Projects/medi_compare/app/controllers/static_pages_controller.rb": [
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/austin/Projects/medi_compare/app/models/benefit.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        25,
+        1,
+        1,
+        1,
+        null,
+        1,
+        11,
+        1,
+        null,
+        10,
+        null,
+        null,
+        null
+      ],
+      "/home/austin/Projects/medi_compare/app/models/insurer.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        9,
+        1,
+        null,
+        8,
+        null,
+        null,
+        null
+      ],
+      "/home/austin/Projects/medi_compare/app/models/product_module.rb": [
         1,
         null,
         null,
@@ -663,36 +922,22 @@
         1,
         null
       ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/app/models/product.rb": [
+      "/home/austin/Projects/medi_compare/app/models/product.rb": [
         1,
         1,
         1,
         1,
         null,
         1,
-        0,
-        0,
-        null,
-        0,
-        null,
-        null,
-        null
-      ],
-      "/mnt/c/Users/austi/Documents/Projects/medi_compare/app/models/insurer.rb": [
-        1,
-        1,
+        10,
         1,
         null,
-        1,
-        0,
-        0,
-        null,
-        0,
+        9,
         null,
         null,
         null
       ]
     },
-    "timestamp": 1573831748
+    "timestamp": 1574719429
   }
 }
