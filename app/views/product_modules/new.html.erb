@@ -2,6 +2,9 @@
   <div class="container">
     <div class="columns">
       <div class="column">
+        <div class="select is-multiple">
+          <%= select_tag :benefits, grouped_options_for_select(options_for_benefits_select(@benefits)), multiple: true %>
+        </div>
       </div>
       <div class="column">
       </div>
