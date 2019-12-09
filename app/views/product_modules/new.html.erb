@@ -37,6 +37,11 @@
                 <%= form.text_field :sum_assured, class: 'input' %>
               </div>
             </div>
+            <template data-target='nested-product-module-benefit-form.template'>
+              <%= form.fields_for :product_module_benefits, ProductModuleBenefits.new, child_index 'TEMPLATE_RECORD' do |product_module_benefit| %>
+                
+              <% end %>
+            </template>
           <% end %>
         </div>
       </div>
