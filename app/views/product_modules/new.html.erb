@@ -1,16 +1,44 @@
 <section class="section">
   <div class="container">
     <div class="columns">
-      <div class="column">
-        <div class="select is-multiple">
-          <div class="field">
-            <div class="control">
-              <%= select_tag :benefits, grouped_options_for_select(options_for_benefits_select(@benefits)), multiple: true, size: 10 %>
+      <div data-controller="nested-product-module-benefit-form">
+        <div class="column">
+          <div class="select is-multiple">
+            <div class="field">
+              <div class="control">
+                <%= select_tag :benefits, grouped_options_for_select(options_for_benefits_select(@benefits)), multiple: true, size: 10 %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="column">
+        <div class="column">
+          <%= form_with(model: @product_module, local: true) do |form| %>
+            <div class="field">
+              <%= form.label :name, class: 'label' %>
+              <div class="control">
+                <%= form.text_field :name, class: 'input' %>
+              </div>
+            </div>
+            <div class="field">
+              <%= form.label :category, class: 'label' %>
+              <div class="control">
+                <div class="select is-primary">
+                  <%= form.select :category do %>
+                    <% @product_module_categories.each do |category| %>
+                      <%= content_tag(:option, category.titleize, value: category) %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <%= form.label :sum_assured, class: 'label' %>
+              <div class="control">
+                <%= form.text_field :sum_assured, class: 'input' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
