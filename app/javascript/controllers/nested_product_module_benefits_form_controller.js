@@ -1,11 +1,10 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["add_item", "template"]
+  static targets = ["template", "templatePlaceholder"]
 
   add_benefits(event) {
     event.preventDefault()
-    const templatePlaceholder = document.getElementById('template-placeholder')
     const selectedBenefits = Array.from(document.querySelectorAll('#benefits option:checked'))
     const benefitSelection = selectedBenefits.map(benefit => {
       return {benefit_id: benefit.value, name: benefit.textContent}
@@ -17,6 +16,6 @@ export default class extends Controller {
         .replace(/BENEFIT_NAME/g, benefit.name)
       return content
     })
-    templatePlaceholder.insertAdjacentHTML('beforebegin', benefitHTML.join(' '))
+    this.templatePlaceholderTarget.insertAdjacentHTML('beforebegin', benefitHTML.join(' '))
   }
 }
