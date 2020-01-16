@@ -5,9 +5,12 @@ export default class extends Controller {
 
   addBenefits(event) {
     event.preventDefault()
-    const selectedBenefits = Array.from(document.querySelectorAll('#benefits option:checked'))
+    const benefitSelect = document.getElementById('benefits')
+    const selectedBenefits = Array.from(benefitSelect.selectedOptions)
     const benefitHTML = this.generateTemplateHTML(selectedBenefits)
     this.templatePlaceholderTarget.insertAdjacentHTML('beforebegin', benefitHTML)
+    this.disableSelectedBenefits(benefitSelect, selectedBenefits)
+    benefitSelect.selectedIndex = -1
   }
 
   generateTemplateHTML(benefits) {
@@ -17,5 +20,14 @@ export default class extends Controller {
         .replace(/BENEFIT_ID/g, benefit.value)
         .replace(/BENEFIT_NAME/g, benefit.textContent)
     }).join(' ')
+  }
+
+  disableSelectedBenefits(benefitSelect, selectedBenefits) {
+    const selectedBenefitIds = selectedBenefits.map(benefit => benefit.value)
+    for(let i = 0; i < benefitSelect.length; i++) {
+      if(selectedBenefitIds.includes(benefitSelect[i].value)) {
+        benefitSelect[i].disabled = true
+      }
+    }
   }
 }
