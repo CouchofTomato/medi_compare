@@ -46,6 +46,7 @@
             <h3>Product Module Benefits</h3>
             <template data-target='nested-product-module-benefits-form.template'>
               <%= form.fields_for :product_module_benefits, ProductModuleBenefit.new, child_index: 'TEMPLATE_RECORD' do |product_module_benefit| %>
+                <%= product_module_benefit.hidden_field :benefit_id, value: 'BENEFIT_ID' %>
                 <div class="field">
                   <%= product_module_benefit.label :benefit_name, class: 'label' %>
                   <div class="control">

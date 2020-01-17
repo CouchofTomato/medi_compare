@@ -16,4 +16,6 @@ class ProductModule < ApplicationRecord
   belongs_to :product
   has_many :product_module_benefits, dependent: :destroy
   has_many :benefits, through: :product_module_benefits
+
+  accepts_nested_attributes_for :product_module_benefits
 end
