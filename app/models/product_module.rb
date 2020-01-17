@@ -14,6 +14,6 @@ class ProductModule < ApplicationRecord
   validates :category, presence: true, inclusion: CATEGORY_NAMES
 
   belongs_to :product
-  has_many :product_module_benefits
+  has_many :product_module_benefits, dependent: :destroy
   has_many :benefits, through: :product_module_benefits
 end
