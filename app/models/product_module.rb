@@ -10,7 +10,7 @@ class ProductModule < ApplicationRecord
       evacuation_and_repatriation
     ].freeze
 
-  validates :name, presence: true
+  validates :name, :sum_assured, presence: true
   validates :category, presence: true, inclusion: CATEGORY_NAMES
 
   belongs_to :product
