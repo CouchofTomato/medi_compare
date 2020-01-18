@@ -15,16 +15,36 @@
           </div>
         </div>
       <% end %>
-      <% present_product_module_categories(@product_module_categories, @product_modules).each do |module_category| %>
-        <h3 class="title is-3"><%= module_category %></h3>
-        <% group_by_category(@product_modules)[module_category].each do |product_module| %>
-          <div class="columns is_multiline">
-            <div class="column is-one-quarter">
-              <%= product_module.name %>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% present_product_module_categories(@product_module_categories, @product_modules).each do |module_category| %>
+              <% group_by_category(@product_modules)[module_category].each do |product_module| %>
+                <tr data-target="filter.filterable" data-filter-key='<%= "#{product_module.name}".downcase %>'>
+                  <td>
+                    <%= link_to product_module_path(product_module) do %>
+                      <%= product_module.name.titleize %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to edit_product_module_path(product_module), id: "edit-#{kebab_case(product_module.name)}" do %>
+                      <span class="icom"><i class="fas fa-edit alt"></i></span>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to product_module_path(product_module), method: :delete, id: "delete-#{kebab_case(product_module.name)}", data: {confirm: 'Are you sure you want to delete this product module?'} do %>
+                      <span class="icon"><i class="fas fa-trash-alt"></i></span>
+                    <%end %>
+                  </td>
+                </tr>
+              <% end %>
+            <% end %>,
+          </tbody>
+        </table>
     </div>
   </div>
 </section>
