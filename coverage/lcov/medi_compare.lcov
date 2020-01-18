@@ -47,6 +47,7 @@ DA:22,0
 DA:23,0
 DA:25,0
 end_of_record
+<<<<<<< HEAD
 SF:./app/models/product.rb
 DA:1,1
 DA:2,1
@@ -57,6 +58,8 @@ DA:7,0
 DA:8,0
 DA:10,0
 end_of_record
+=======
+>>>>>>> prod-mod
 SF:./app/models/product_module.rb
 DA:1,1
 DA:4,1
@@ -71,6 +74,10 @@ SF:./app/models/product_module_benefit.rb
 DA:1,1
 DA:2,1
 DA:3,1
+<<<<<<< HEAD
+=======
+DA:5,1
+>>>>>>> prod-mod
 end_of_record
 SF:./app/models/user.rb
 DA:1,1

@@ -655,12 +655,18 @@
         1,
         null
       ],
+<<<<<<< HEAD
       "/home/austin/Projects/medi_compare/app/models/product_module.rb": [
+=======
+      "/home/austin/Projects/medi_compare/app/models/product_module_benefit.rb": [
+        1,
+>>>>>>> prod-mod
         1,
         null,
         null,
         1,
         null,
+<<<<<<< HEAD
         null,
         null,
         null,
@@ -693,10 +699,43 @@
         1,
         0,
         0,
+=======
+        1,
+        null
+      ],
+      "/home/austin/Projects/medi_compare/app/models/product_module.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+>>>>>>> prod-mod
         null,
         0,
         null,
         null,
+<<<<<<< HEAD
+        null
+      ],
+      "/home/austin/Projects/medi_compare/app/models/benefit.rb": [
+=======
+        null,
+        null,
+        null,
+        null,
+        1,
+>>>>>>> prod-mod
+        1,
+        null,
+        null,
+        1,
+<<<<<<< HEAD
+=======
+        1,
+        1,
+>>>>>>> prod-mod
+        null,
+        1,
         null
       ],
       "/home/austin/Projects/medi_compare/app/models/benefit.rb": [
@@ -712,9 +751,12 @@
         null,
         null,
         null,
+<<<<<<< HEAD
+=======
         null,
         null,
         null,
+>>>>>>> prod-mod
         1,
         1,
         1,
@@ -730,6 +772,10 @@
         null
       ]
     },
+<<<<<<< HEAD
     "timestamp": 1579371540
+=======
+    "timestamp": 1579371464
+>>>>>>> prod-mod
   }
 }
