@@ -1,3 +1,28 @@
+SF:./app/controllers/application_controller.rb
+DA:1,1
+end_of_record
+SF:./app/controllers/product_modules_controller.rb
+DA:1,1
+DA:2,1
+DA:4,1
+DA:5,0
+DA:6,0
+DA:7,0
+DA:10,1
+DA:11,0
+DA:12,0
+DA:13,0
+DA:14,0
+DA:15,0
+DA:16,0
+DA:18,0
+DA:19,0
+DA:23,1
+DA:25,1
+DA:26,0
+DA:35,1
+DA:36,0
+end_of_record
 SF:./app/helpers/application_helper.rb
 DA:1,1
 DA:2,1
@@ -35,6 +60,7 @@ SF:./app/models/application_record.rb
 DA:1,1
 DA:2,1
 end_of_record
+<<<<<<< HEAD
 SF:./app/models/benefit.rb
 DA:1,1
 DA:4,1
@@ -79,6 +105,8 @@ DA:3,1
 DA:5,1
 >>>>>>> prod-mod
 end_of_record
+=======
+>>>>>>> prod-mod
 SF:./app/models/user.rb
 DA:1,1
 DA:4,1

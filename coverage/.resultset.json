@@ -656,6 +656,7 @@
         null
       ],
 <<<<<<< HEAD
+<<<<<<< HEAD
       "/home/austin/Projects/medi_compare/app/models/product_module.rb": [
 =======
       "/home/austin/Projects/medi_compare/app/models/product_module_benefit.rb": [
@@ -678,10 +679,14 @@
         1,
         null,
         1,
+=======
+      "/home/austin/Projects/medi_compare/app/controllers/product_modules_controller.rb": [
+>>>>>>> prod-mod
         1,
         1,
         null,
         1,
+<<<<<<< HEAD
         null
       ],
       "/home/austin/Projects/medi_compare/app/models/product_module_benefit.rb": [
@@ -705,15 +710,32 @@
       ],
       "/home/austin/Projects/medi_compare/app/models/product_module.rb": [
         1,
+=======
+        0,
+        0,
+        0,
+>>>>>>> prod-mod
         null,
         null,
         1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         null,
+<<<<<<< HEAD
+>>>>>>> prod-mod
+=======
+        0,
+        0,
 >>>>>>> prod-mod
         null,
         0,
         null,
         null,
+<<<<<<< HEAD
 <<<<<<< HEAD
         null
       ],
@@ -739,10 +761,12 @@
         null
       ],
       "/home/austin/Projects/medi_compare/app/models/benefit.rb": [
+=======
+>>>>>>> prod-mod
         1,
         null,
-        null,
         1,
+        0,
         null,
         null,
         null,
@@ -752,30 +776,33 @@
         null,
         null,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         null,
         null,
         null,
 >>>>>>> prod-mod
         1,
-        1,
-        1,
-        1,
-        null,
+=======
+>>>>>>> prod-mod
         1,
         0,
-        0,
         null,
-        0,
-        null,
-        null,
+        null
+      ],
+      "/home/austin/Projects/medi_compare/app/controllers/application_controller.rb": [
+        1,
         null
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     "timestamp": 1579371540
 =======
     "timestamp": 1579371464
+>>>>>>> prod-mod
+=======
+    "timestamp": 1579731166
 >>>>>>> prod-mod
   }
 }
