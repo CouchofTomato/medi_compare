@@ -17,6 +17,9 @@
           </div>
         </div>
         <div class="column">
+        <div>
+          <%= render partial: 'shared/error_messages', locals: {object: @product_module} -%>
+        </div>
           <%= form_with(model: @product_module, local: true, id: 'product-module-form') do |form| %>
             <%= hidden_field_tag :product_id, @product.id %>
             <div class="field">
