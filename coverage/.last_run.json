@@ -2,12 +2,16 @@
   "result": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "covered_percent": 88.24
 =======
     "covered_percent": 90.18
 >>>>>>> prod-mod
 =======
     "covered_percent": 81.08
+>>>>>>> prod-mod
+=======
+    "covered_percent": 68.95
 >>>>>>> prod-mod
   }
 }

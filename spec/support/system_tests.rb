@@ -9,3 +9,4 @@ RSpec.configure do |config|
 end
 
 require 'capybara-screenshot/rspec'
+Capybara.asset_host ='http://localhost:3000'

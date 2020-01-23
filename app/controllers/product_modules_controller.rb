@@ -20,6 +20,18 @@ class ProductModulesController < ApplicationController
     end
   end
 
+  def destroy
+    @product_module = ProductModule.find(params[:id])
+    @product = @product_module.product
+
+    if @product_module.destroy
+      flash[:notice] = 'Product Module deleted!'
+    else
+      flash[:warning] = 'Product Module could not be deleted'
+    end
+    redirect_to product_path(@product)
+  end
+
   private
 
   def product_module_params
