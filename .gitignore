@@ -31,4 +31,5 @@ yarn-debug.log*
 .yarn-integrity
 
 # Ignore lcov results
+/coverage
 /coverage/lcov
