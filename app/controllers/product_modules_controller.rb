@@ -1,5 +1,5 @@
 class ProductModulesController < ApplicationController
-  before_action :instantiate_benefit_module_categories, only: [:new, :create]
+  before_action :instantiate_benefit_module_categories, only: %i[new create edit]
 
   def new
     @product = Product.find(params[:product_id])
@@ -17,6 +17,28 @@ class ProductModulesController < ApplicationController
     else
       flash.now[:warning] = 'Product Module could not be created'
       render :new
+    end
+  end
+
+  def edit
+    @product_module = ProductModule.find(params[:id])
+    @product_module_benefits = @product_module.product_module_benefits
+    @selected_benefits = @product_module.benefits.map(&:id)
+    @product = @product_module.product
+    @benefits = Benefit.all
+  end
+
+  def update
+    @product_module = ProductModule.find(params[:id])
+    @product = @product_module.product
+    @benefits = Benefit.all
+
+    if @product_module.update(product_module_params)
+      flash[:notice] = 'Product Module Successfully Updated'
+      redirect_to product_path(@product)
+    else
+      flash.now[:warning] = 'Product Module could not be updated'
+      render :edit
     end
   end
 
@@ -40,7 +62,7 @@ class ProductModulesController < ApplicationController
             :name,
             :category,
             :sum_assured,
-            product_module_benefits_attributes: %i[benefit_id benefit_coverage explanation_of_benefit]
+            product_module_benefits_attributes: %i[id benefit_id benefit_coverage explanation_of_benefit]
           )
   end
 
