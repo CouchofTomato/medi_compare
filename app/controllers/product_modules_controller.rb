@@ -22,7 +22,7 @@ class ProductModulesController < ApplicationController
 
   def edit
     @product_module = ProductModule.find(params[:id])
-    @product_module_benefits = @product_module.product_module_benefits
+    @product_module_benefits = @product_module.product_module_benefits.includes(:benefit)
     @selected_benefits = @product_module.benefits.map(&:id)
     @product = @product_module.product
     @benefits = Benefit.all

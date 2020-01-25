@@ -70,7 +70,7 @@
                 </div>
               <% end %>
             </template>
-            <%= form.fields_for :product_module_benefits do |product_module_benefit| %>
+            <%= form.fields_for :product_module_benefits, @product_module_benefits do |product_module_benefit| %>
                 <%= product_module_benefit.hidden_field :benefit_id, value: product_module_benefit.object.benefit.id %>
                 <div class="field">
                   <%= product_module_benefit.label :benefit_name, class: 'label' %>
@@ -104,4 +104,3 @@
     </div>
   </div>
 </section>
-
