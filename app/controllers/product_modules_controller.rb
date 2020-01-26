@@ -4,13 +4,16 @@ class ProductModulesController < ApplicationController
   def new
     @product = Product.find(params[:product_id])
     @product_module = @product.product_modules.new
+    @product_module_benefits = @product_module.product_module_benefits.includes(:benefit)
     @benefits = Benefit.all
   end
 
   def create
     @product = Product.find(params[:product_id])
     @product_module = @product.product_modules.build(product_module_params)
+    @product_module_benefits = params['product_module']['product_module_benefits_attributes']
     @benefits = Benefit.all
+    @selected_benefits = @product_module_benefits.values.map { |benefit| benefit['benefit_id'] }
     if @product_module.save
       flash[:notice] = 'New Product Module Created!'
       redirect_to product_path(@product)

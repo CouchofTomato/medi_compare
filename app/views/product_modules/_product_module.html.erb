@@ -1,0 +1,107 @@
+<section class="section">
+  <div class="container">
+    <div data-controller="nested-product-module-benefits-form">
+      <div class="columns">
+        <div class="column">
+          <div class="select is-multiple">
+            <div class="field">
+              <div class="control">
+                <%= select_tag :benefits, grouped_options_for_select(options_for_benefits_select(benefits), disabled: selected_benefits), multiple: true, size: 10 %>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <button class="button" data-action="nested-product-module-benefits-form#addBenefits">Add Benefits</button>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+        <div>
+          <%= render partial: 'shared/error_messages', locals: {object: product_module} -%>
+        </div>
+          <%= form_with(model: product_module, local: true, id: 'product-module-form') do |form| %>
+            <%= hidden_field_tag :product_id, product.id %>
+            <div class="field">
+              <%= form.label :name, class: 'label' %>
+              <div class="control">
+                <%= form.text_field :name, class: 'input' %>
+              </div>
+            </div>
+            <div class="field">
+              <%= form.label :category, class: 'label' %>
+              <div class="control">
+                <div class="select is-primary">
+                  <%= form.select :category do %>
+                    <% product_module_categories.each do |category| %>
+                      <%= content_tag(:option, category.titleize, value: category) %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <%= form.label :sum_assured, class: 'label' %>
+              <div class="control">
+                <%= form.text_field :sum_assured, class: 'input' %>
+              </div>
+            </div>
+            <h3>Product Module Benefits</h3>
+            <template data-target='nested-product-module-benefits-form.template'>
+              <%= form.fields_for :product_module_benefits, ProductModuleBenefit.new, child_index: 'TEMPLATE_RECORD' do |product_module_benefit| %>
+                <%= product_module_benefit.hidden_field :benefit_id, value: 'BENEFIT_ID' %>
+                <div class="field">
+                  <%= product_module_benefit.label :benefit_name, class: 'label' %>
+                  <div class="control">
+                    <%= product_module_benefit.text_field :benefit_name, class: 'input', value: 'BENEFIT_NAME', disabled: true %>
+                  </div>
+                </div>
+                <div class="field">
+                  <%= product_module_benefit.label :benefit_coverage, class: 'label' %>
+                  <div class="control">
+                    <%= product_module_benefit.text_field :benefit_coverage, class: 'input' %>
+                  </div>
+                </div>
+                <div class="field">
+                  <%= product_module_benefit.label :explanation_of_benefit, class: 'label' %>
+                  <div class="control">
+                    <%= product_module_benefit.text_area :explanation_of_benefit, class: 'textarea' %>
+                  </div>
+                </div>
+              <% end %>
+            </template>
+            <%= form.fields_for :product_module_benefits, product_module_benefits do |product_module_benefit| %>
+              <%= product_module_benefit.hidden_field :benefit_id, value: product_module_benefit.object.benefit.id %>
+              <div class="field">
+                <%= product_module_benefit.label :benefit_name, class: 'label' %>
+                <div class="control">
+                  <%= product_module_benefit.text_field :benefit_name, class: 'input', value: product_module_benefit.object.benefit.name, disabled: true %>
+                </div>
+              </div>
+              <div class="field">
+                <%= product_module_benefit.label :benefit_coverage, class: 'label' %>
+                <div class="control">
+                  <%= product_module_benefit.text_field :benefit_coverage, class: 'input' %>
+                </div>
+              </div>
+              <div class="field">
+                <%= product_module_benefit.label :explanation_of_benefit, class: 'label' %>
+                <div class="control">
+                  <%= product_module_benefit.text_area :explanation_of_benefit, class: 'textarea' %>
+                </div>
+              </div>
+            <% end %>
+            <div data-target='nested-product-module-benefits-form.templatePlaceholder'>
+            </div>
+            <div class="field">
+              <div class="control">
+                <%= form.submit "#{heading}", id: "#{heading.downcase}-button", class: 'button is-primary' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
