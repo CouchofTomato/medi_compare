@@ -23,6 +23,13 @@ class ProductModulesController < ApplicationController
     end
   end
 
+  def show
+    @product_module = ProductModule.find(params[:id])
+    @product = @product_module.product
+    @product_module_benefits = @product_module.product_module_benefits.includes(:benefit)
+    @insurer = @product.insurer
+  end
+
   def edit
     @product_module = ProductModule.find(params[:id])
     @product_module_benefits = @product_module.product_module_benefits.includes(:benefit)
@@ -65,7 +72,7 @@ class ProductModulesController < ApplicationController
             :name,
             :category,
             :sum_assured,
-            product_module_benefits_attributes: %i[id benefit_id benefit_coverage explanation_of_benefit]
+            product_module_benefits_attributes: %i[_destroy id benefit_id benefit_coverage explanation_of_benefit]
           )
   end
 

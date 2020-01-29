@@ -1,0 +1,25 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title is-1"><%= @insurer.name %></h1>
+    <h2 class="title is-2"><%= @product.name %></h2>
+    <h3 class="title is-3"><%= @product_module.name %></h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Benefit</th>
+          <th>Coverage</th>
+          <th>Explanation of benefit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @product_module_benefits.each do |module_benefit| %>
+          <tr>
+            <td><%= module_benefit.benefit.name %></td>
+            <td><%= module_benefit.benefit_coverage %></td>
+            <td><%= module_benefit.explanation_of_benefit %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>

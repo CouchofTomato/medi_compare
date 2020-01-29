@@ -30,4 +30,22 @@ export default class extends Controller {
       }
     }
   }
+
+  remove_benefit(event) {
+    event.preventDefault()
+    const benefit = event.target.closest(".nested-fields")
+    const benefitId = benefit.querySelector(".benefit-id").value
+    const benefitSelect = document.getElementById('benefits')
+    benefit.querySelector(".destroy").value = 1
+    benefit.style.display = 'none'
+    this.enableSelectedBenefit(benefitSelect, benefitId)
+  }
+
+  enableSelectedBenefit(benefitSelect, benefitId) {
+    for(let i = 0; i < benefitSelect.length; i++) {
+      if(benefitId == benefitSelect[i].value) {
+        benefitSelect[i].disabled = false
+      }
+    }
+  }
 }
