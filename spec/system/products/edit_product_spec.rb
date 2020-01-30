@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'editing a product', type: :system do
   let(:insurer) { create(:insurer) }
-  before :example do
+
+  before do
     user = create(:user)
     login_as(user, scope: :user)
     create(:product, name: 'lifeline', insurer: insurer)
