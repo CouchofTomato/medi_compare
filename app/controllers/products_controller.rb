@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!
   before_action :instantiate_benefit_module_categories, only: [:show]
 
   def new

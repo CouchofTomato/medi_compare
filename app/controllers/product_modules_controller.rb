@@ -1,4 +1,5 @@
 class ProductModulesController < ApplicationController
+  before_action :authenticate_user!
   before_action :instantiate_benefit_module_categories, only: %i[new create edit]
 
   def new
