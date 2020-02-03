@@ -2,6 +2,14 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!
   before_action :instantiate_benefit_module_categories, only: [:show]
 
+  def index
+    @insurer = Insurer.find(params[:insurer_id])
+    @products = @insurer.products
+    respond_to do |format|
+      format.json { render json: @products }
+    end
+  end
+
   def new
     @insurer = Insurer.find(params[:insurer_id])
     @product = Product.new

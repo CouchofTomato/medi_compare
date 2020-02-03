@@ -1,0 +1,13 @@
+<section class="section">
+  <div class="container">
+    <h3 class="title is-3">Product Picker</h3>
+    <div data-controller="comparison-select">
+      <div class="select">
+        <%= select_tag :insurer, options_from_collection_for_select(@insurers, "id", "name"), prompt: 'Select Insurer...', data: {target: 'comparison-select.insurer', action: 'change->comparison-select#getProducts'} %>
+      </div>
+      <div class="select">
+        <%= select_tag :product, options_for_select([]), prompt: 'Select Product', data: { target: 'comparison-select.product' } %>
+      </div>
+    </div>
+  </div>
+</section>

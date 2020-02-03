@@ -17,9 +17,9 @@
           </div>
         </div>
         <div class="column">
-        <div>
-          <%= render partial: 'shared/error_messages', locals: {object: product_module} -%>
-        </div>
+          <div>
+            <%= render partial: 'shared/error_messages', locals: {object: product_module} -%>
+          </div>
           <%= form_with(model: product_module, local: true, id: 'product-module-form') do |form| %>
             <%= hidden_field_tag :product_id, product.id %>
             <div class="field">
@@ -78,35 +78,35 @@
                 </div>
               <% end %>
             </template>
-              <%= form.fields_for :product_module_benefits, product_module_benefits do |product_module_benefit| %>
-                <div class="nested-fields">
-                  <%= product_module_benefit.hidden_field :benefit_id, value: product_module_benefit.object.benefit.id, class: 'benefit-id' %>
-                  <%= product_module_benefit.hidden_field :_destroy, class: 'destroy' %>
-                  <div class="field">
-                    <%= product_module_benefit.label :benefit_name, class: 'label' %>
-                    <div class="control">
-                      <%= product_module_benefit.text_field :benefit_name, class: 'input', value: product_module_benefit.object.benefit.name, disabled: true %>
-                    </div>
-                  </div>
-                  <div class="field">
-                    <%= product_module_benefit.label :benefit_coverage, class: 'label' %>
-                    <div class="control">
-                      <%= product_module_benefit.text_field :benefit_coverage, class: 'input' %>
-                    </div>
-                  </div>
-                  <div class="field">
-                    <%= product_module_benefit.label :explanation_of_benefit, class: 'label' %>
-                    <div class="control">
-                      <%= product_module_benefit.text_area :explanation_of_benefit, class: 'textarea' %>
-                    </div>
-                  </div>
-                  <div class="field">
-                    <div class="control">
-                      <%= link_to "Remove", '#', data: { action: "click->nested-product-module-benefits-form#remove_benefit" } %>
-                    </div>
+            <%= form.fields_for :product_module_benefits, product_module_benefits do |product_module_benefit| %>
+              <div class="nested-fields">
+                <%= product_module_benefit.hidden_field :benefit_id, value: product_module_benefit.object.benefit.id, class: 'benefit-id' %>
+                <%= product_module_benefit.hidden_field :_destroy, class: 'destroy' %>
+                <div class="field">
+                  <%= product_module_benefit.label :benefit_name, class: 'label' %>
+                  <div class="control">
+                    <%= product_module_benefit.text_field :benefit_name, class: 'input', value: product_module_benefit.object.benefit.name, disabled: true %>
                   </div>
                 </div>
-              <% end %>
+                <div class="field">
+                  <%= product_module_benefit.label :benefit_coverage, class: 'label' %>
+                  <div class="control">
+                    <%= product_module_benefit.text_field :benefit_coverage, class: 'input' %>
+                  </div>
+                </div>
+                <div class="field">
+                  <%= product_module_benefit.label :explanation_of_benefit, class: 'label' %>
+                  <div class="control">
+                    <%= product_module_benefit.text_area :explanation_of_benefit, class: 'textarea' %>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <%= link_to "Remove", '#', data: { action: "click->nested-product-module-benefits-form#remove_benefit" } %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
             <div data-target='nested-product-module-benefits-form.templatePlaceholder'>
             </div>
             <div class="field">
