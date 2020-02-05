@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["insurer", "product"]
 
   getProducts(event) {
-    this.clearProducts()
+    this.clearSelect(this.productTarget)
     Rails.ajax({
       url: `/insurers/${this.insurerTarget.value}/products.json`,
       type: 'get',
@@ -19,8 +19,8 @@ export default class extends Controller {
     })
   }
 
-  clearProducts() {
-    this.productTarget.length = 1
+  clearSelect(target) {
+    target.length = 1
   }
 
   addProducts(products) {
