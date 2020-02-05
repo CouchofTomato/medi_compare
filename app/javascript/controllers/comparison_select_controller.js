@@ -3,8 +3,9 @@ import Rails from "@rails/ujs"
 
 export default class extends Controller {
   static targets = ["insurer", "product"]
-  
+
   getProducts(event) {
+    this.clearProducts()
     Rails.ajax({
       url: `/insurers/${this.insurerTarget.value}/products.json`,
       type: 'get',
@@ -16,6 +17,10 @@ export default class extends Controller {
         console.log(data)
       }
     })
+  }
+
+  clearProducts() {
+    this.productTarget.length = 1
   }
 
   addProducts(products) {
