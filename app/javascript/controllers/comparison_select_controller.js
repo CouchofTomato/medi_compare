@@ -6,12 +6,13 @@ export default class extends Controller {
 
   getProducts(event) {
     this.clearSelect(this.productTarget)
+    if (this.insurerTarget.value == '') return
+
     Rails.ajax({
-      url: `/insurers/${this.insurerTarget.value}/products.json`,
+      url: `/insurers/${this.insurerTarget.value}/products`,
       type: 'get',
       data: '',
       success: (data) => {
-        this.addProducts(data)
       },
       error: (data) => {
         console.log(data)
@@ -21,14 +22,5 @@ export default class extends Controller {
 
   clearSelect(target) {
     target.length = 1
-  }
-
-  addProducts(products) {
-    products.forEach(product => {
-      const option = document.createElement('option')
-      option.value = product.id
-      option.text = product.name
-      this.productTarget.appendChild(option)
-    })
   }
 }

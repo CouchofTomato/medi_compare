@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
     @insurer = Insurer.find(params[:insurer_id])
     @products = @insurer.products
     respond_to do |format|
-      format.json { render json: @products }
+      format.js
     end
   end
 
