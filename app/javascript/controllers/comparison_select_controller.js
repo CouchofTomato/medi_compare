@@ -6,6 +6,7 @@ export default class extends Controller {
 
   getProducts(event) {
     this.productTarget.length = 1
+    this.productModulesTarget.innerHTML = ''
     if (this.insurerTarget.value == '') return
 
     Rails.ajax({

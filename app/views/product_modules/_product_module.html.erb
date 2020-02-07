@@ -1,11 +1,13 @@
 <% product_module_categories.each do |category| %>
-  <h3 class="title is-3"><%= category.titleize %></h3>
-  <div class="control">
-    <% product_modules[category].each do |product_module| %>
-      <label class="radio">
-        <input type="radio" name="<%= category %>">
-        <%= product_module.name %>
-      </label>
-    <% end %>
+  <div class="field">
+    <h5 class="title is-5"><%= category.titleize %></h3>
+    <div class="control">
+      <% product_modules[category].each do |product_module| %>
+        <label class="radio">
+          <input type="radio" name="<%= category %>">
+          <%= product_module.name %>
+        </label>
+      <% end %>
+    </div>
   </div>
 <% end %>
