@@ -2,10 +2,10 @@ import { Controller } from "stimulus"
 import Rails from "@rails/ujs"
 
 export default class extends Controller {
-  static targets = ["insurer", "product"]
+  static targets = ["insurer", "product", "productModules"]
 
   getProducts(event) {
-    this.clearSelect(this.productTarget)
+    this.productTarget.length = 1
     if (this.insurerTarget.value == '') return
 
     Rails.ajax({
@@ -20,7 +20,18 @@ export default class extends Controller {
     })
   }
 
-  clearSelect(target) {
-    target.length = 1
+  getProductModules(event) {
+    this.productModulesTarget.innerHTML = ''
+    if (this.productTarget.value == '') return
+
+    Rails.ajax({
+      url: `/products/${this.productTarget.value}/product_modules`,
+      type: 'get',
+      data: '',
+      success: (data) => {
+      },
+      error: (data) => {
+      }
+    })
   }
 }

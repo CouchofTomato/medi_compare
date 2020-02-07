@@ -1,0 +1,2 @@
+document.querySelector('#product-modules')
+  .innerHTML = "<%= j(render(partial: 'product_module', locals: {product_modules: @product_modules, product_module_categories: @product_module_categories})) %>"

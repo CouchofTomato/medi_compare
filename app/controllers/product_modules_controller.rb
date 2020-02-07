@@ -2,6 +2,15 @@ class ProductModulesController < ApplicationController
   before_action :authenticate_user!
   before_action :instantiate_benefit_module_categories, only: %i[new create edit]
 
+  def index
+    @product = Product.find(params[:product_id])
+    @product_modules = @product.product_modules.group_by(&:category)
+    @product_module_categories = ProductModule::CATEGORY_NAMES.select { |category| @product_modules.keys.include? category }
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def new
     @product = Product.find(params[:product_id])
     @product_module = @product.product_modules.new
