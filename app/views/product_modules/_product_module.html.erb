@@ -4,7 +4,7 @@
     <div class="control">
       <% product_modules[category].each do |product_module| %>
         <label class="radio">
-          <input type="radio" name="<%= category %>">
+          <input type="radio" value="<%= product_module.id %>" name="<%= category %>">
           <%= product_module.name %>
         </label>
       <% end %>

@@ -35,4 +35,20 @@ export default class extends Controller {
       }
     })
   }
+
+  loadBenefits(event) {
+    let something = this.productModulesTarget.querySelectorAll("input[type=radio]:checked")
+    console.log(something)
+    Rails.ajax({
+      url: '/product_module_benefits',
+      type: 'get',
+      data: ``,
+      success: (data) => {
+
+      },
+      error: (data) => {
+
+      }
+    })
+  }
 }

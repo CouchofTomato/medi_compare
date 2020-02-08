@@ -1,0 +1,2 @@
+module ProductModuleBenefitsHelper
+end

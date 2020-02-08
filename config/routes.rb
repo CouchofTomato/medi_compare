@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   resources :product_modules
 
+  resources :product_module_benefits
+
   resources :comparisons
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
