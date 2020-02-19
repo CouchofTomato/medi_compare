@@ -18,3 +18,4 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 import "controllers"
+import bulmaCollapsible from '@creativebulma/bulma-collapsible'
