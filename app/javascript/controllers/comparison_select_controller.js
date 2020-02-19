@@ -5,6 +5,7 @@ export default class extends Controller {
   static targets = ["insurer", "product", "productModules"]
 
   getProducts(event) {
+    console.log(this.insurerTarget.value)
     this.productTarget.length = 1
     this.productModulesTarget.innerHTML = ''
     if (this.insurerTarget.value == '') return
@@ -37,12 +38,12 @@ export default class extends Controller {
   }
 
   loadBenefits(event) {
-    let something = this.productModulesTarget.querySelectorAll("input[type=radio]:checked")
-    console.log(something)
+    let selectedModules = this.productModulesTarget.querySelectorAll("input[type=radio]:checked")
+    let moduleIDs = Array.from(selectedModules).map(module => `moduleIDs[]=${module.value}`).join("&")
     Rails.ajax({
       url: '/product_module_benefits',
       type: 'get',
-      data: ``,
+      data: moduleIDs,
       success: (data) => {
 
       },

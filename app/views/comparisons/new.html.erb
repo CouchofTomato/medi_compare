@@ -4,28 +4,55 @@
       <div class="column">
         <h3 class="title is-3">Product Picker</h3>
         <div data-controller="comparison-select">
-          <div class="field">
-            <div class="control">
-              <div class="select">
-                <%= select_tag :insurer, options_from_collection_for_select(@insurers, "id", "name"), prompt: 'Select Insurer...', data: {target: 'comparison-select.insurer', action: 'change->comparison-select#getProducts'}, id: 'insurer-select' %>
+          <%= form_with(model: ComparisonProduct.new) do |form| %>
+            <div class="field">
+              <div class="control">
+                <div class="select">
+                  <%= form.select :insurer, options_from_collection_for_select(@insurers, "id", "name"), {prompt: 'Select Insurer...'}, data: {target: 'comparison-select.insurer', action: 'change->comparison-select#getProducts'}, id: 'insurer-select' %>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="field">
-            <div class="control">
-              <div class="select">
-                <%= select_tag :product, options_for_select([]), prompt: 'Select Product', data: { target: 'comparison-select.product', action: 'change->comparison-select#getProductModules' }, id: 'product-select' %>
+            <div class="field">
+              <div class="control">
+                <div class="select">
+                  <%= form.select :product, options_for_select([]), {prompt: 'Select Product'}, data: { target: 'comparison-select.product', action: 'change->comparison-select#getProductModules' }, id: 'product-select' %>
+                </div>
               </div>
             </div>
-          </div>
-          <div id="product-modules" data-target="comparison-select.productModules">
-          </div>
-          <div class="field">
-            <div class="control">
-              <%= button_tag "Load Benefits", class: 'button is-primary', data: { action: 'click->comparison-select#loadBenefits' } %>
+            <div id="product-modules" data-target="comparison-select.productModules">
             </div>
-          </div>
+            <div class="field">
+              <div class="control">
+                <%= form.submit "Load Benefits", class: 'button is-primary', data: { action: 'click->comparison-select#loadBenefits' } %>
+              </div>
+            </div>
+          <% end %>
         </div>
+      </div>
+      <div class="column">
+        <table class="table is_striped">
+          <tbody>
+            <tr>
+              <td>Insurer</td>
+            </tr>
+            <tr>
+              <td>Product</td>
+            </tr>
+            <tr>
+              <td>Chosen Cover</td>
+            </tr>
+            <tr>
+              <td>Overall Sum Assured</td>
+            </tr>
+            <% @benefit_categories.each do |category| %>
+              <% @benefits[category].each do |benefit| %>
+                <tr>
+                  <td><%= benefit.name.titleize %></td>
+                </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
