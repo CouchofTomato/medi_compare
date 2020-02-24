@@ -30,29 +30,43 @@
         </div>
       </div>
       <div class="column">
-        <table class="table is_striped">
-          <tbody>
-            <tr>
-              <td>Insurer</td>
-            </tr>
-            <tr>
-              <td>Product</td>
-            </tr>
-            <tr>
-              <td>Chosen Cover</td>
-            </tr>
-            <tr>
-              <td>Overall Sum Assured</td>
-            </tr>
+        <div id="accordian">
+          <table id="accordian" class="table">
+            <tbody>
+              <tr>
+                <td colspan="100%"><a href="#collapsible-section-1" data-action="collapse">Product Details</a></td>
+              </tr>
+            </tbody>
+            <tbody id="collapsible-section-1" class="is-collapsible" data-parent="accordian" data-allow-multiple="true">
+              <tr>
+                <td>Insurer</td>
+              </tr>
+              <tr>
+                <td>Product</td>
+              </tr>
+              <tr>
+                <td>Chosen Cover</td>
+              </tr>
+              <tr>
+                <td>Overall Sum Assured</td>
+              </tr>
+            </tbody>
             <% @benefit_categories.each do |category| %>
-              <% @benefits[category].each do |benefit| %>
+              <tbody>
                 <tr>
-                  <td><%= benefit.name.titleize %></td>
+                  <td colspan="100%"><a href=<%= "#collapsible-section-#{category}" %> data-action="collapse"><%= category.titleize %></a></td>
                 </tr>
-              <% end %>
+              </tbody>
+              <tbody id=<%= "collapsible-section-#{category}" %> class="is-collapsible" data-parent="accordian" data-allow-multiple="true">
+                <% @benefits[category].each do |benefit| %>
+                  <tr>
+                    <td><%= benefit.name.titleize %></td>
+                  </tr>
+                <% end %>
+              </tbody>
             <% end %>
-          </tbody>
-        </table>
+          </table>
+        </div>
       </div>
     </div>
   </div>

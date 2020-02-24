@@ -5,7 +5,6 @@ export default class extends Controller {
   static targets = ["insurer", "product", "productModules"]
 
   getProducts(event) {
-    console.log(this.insurerTarget.value)
     this.productTarget.length = 1
     this.productModulesTarget.innerHTML = ''
     if (this.insurerTarget.value == '') return

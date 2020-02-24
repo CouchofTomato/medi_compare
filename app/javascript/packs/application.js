@@ -18,4 +18,10 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 import "controllers"
+
+// bulmaCollapsible Initialisation
 import bulmaCollapsible from '@creativebulma/bulma-collapsible'
+
+document.addEventListener('DOMContentLoaded', () => {
+  bulmaCollapsible.attach()
+})
