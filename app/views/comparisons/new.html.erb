@@ -4,7 +4,7 @@
       <div class="column">
         <h3 class="title is-3">Product Picker</h3>
         <div data-controller="comparison-select">
-          <%= form_with(model: ComparisonProduct.new) do |form| %>
+          <%= form_with(url: comparison_products_path) do |form| %>
             <div class="field">
               <div class="control">
                 <div class="select">
