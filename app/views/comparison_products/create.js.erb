@@ -1,0 +1,15 @@
+document.getElementById('insurer')
+  .insertCell()
+  .textContent = "<%= @insurer.name %>"
+
+document.getElementById('product')
+  .insertCell()
+  .textContent = "<%= @product.name %>"
+
+document.getElementById('chosen-cover')
+  .insertCell()
+  .textContent = "<%= selected_modules(@product_modules) %>"
+
+document.getElementById('overall-sum-assured')
+  .insertCell()
+  .textContent = "<%= overall_sum_assured(@product_modules) %>"

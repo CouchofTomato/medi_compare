@@ -1,11 +1,19 @@
 class ComparisonProductsController < ApplicationController
   def create
-    @selected_product = Insurer.includes(
-      products: { product_modules: { product_module_benefits: :benefit } }
-    ).where(
-      id: params[:insurer],
-      products: { id: params[:product], product_modules: selected_modules(params[:product_modules]) }
-    )
+    # @comparison_product = Insurer.includes(
+    #   products: { product_modules: { product_module_benefits: :benefit } }
+    # ).where(
+    #   id: params[:insurer],
+    #   products: {
+    #     id: params[:product],
+    #     product_modules: selected_modules(params[:product_modules])
+    #   }
+    # )
+    @insurer = Insurer.find(params[:insurer])
+    @product = Product.find(params[:product])
+    @product_modules = ProductModule
+                       .includes(product_module_benefits: :benefit)
+                       .where(id: selected_modules(params[:product_modules]))
 
     respond_to do |format|
       format.js

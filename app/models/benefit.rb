@@ -15,8 +15,8 @@ class Benefit < ApplicationRecord
 
   before_save { self.name.downcase! }
   validates :name, :category, presence: true
-  validates_uniqueness_of :name, scope: :category, case_sensitive: false, message: 'with that category already exists'
-  validates_inclusion_of :category, in: CATEGORY_NAMES
+  validates :name, uniqueness: { scope: :category, case_sensitive: false, message: 'with that category already exists' }
+  validates :category, inclusion: CATEGORY_NAMES
 
   def self.search(search_term)
     if search_term

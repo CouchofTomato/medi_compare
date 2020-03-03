@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_13_135942) do
+ActiveRecord::Schema.define(version: 2020_03_03_214437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2019_12_13_135942) do
     t.string "explanation_of_benefit"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "benefit_limit"
     t.index ["benefit_id"], name: "index_product_module_benefits_on_benefit_id"
     t.index ["product_module_id"], name: "index_product_module_benefits_on_product_module_id"
   end
