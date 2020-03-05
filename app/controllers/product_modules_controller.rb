@@ -1,6 +1,7 @@
 class ProductModulesController < ApplicationController
   before_action :authenticate_user!
-  before_action :instantiate_benefit_module_categories, only: %i[new create edit]
+  before_action :set_module_categories, only: %i[new create edit]
+  before_action :set_coverage_options, only: %i[new create edit]
 
   def index
     @product = Product.find(params[:product_id])
@@ -82,11 +83,15 @@ class ProductModulesController < ApplicationController
             :name,
             :category,
             :sum_assured,
-            product_module_benefits_attributes: %i[_destroy id benefit_id benefit_coverage explanation_of_benefit]
+            product_module_benefits_attributes: %i[_destroy id benefit_id benefit_limit benefit_coverage explanation_of_benefit]
           )
   end
 
-  def instantiate_benefit_module_categories
+  def set_module_categories
     @product_module_categories = ProductModule::CATEGORY_NAMES
+  end
+
+  def set_coverage_options
+    @coverage_options = ProductModuleBenefit::COVERAGE_OPTIONS
   end
 end

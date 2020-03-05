@@ -8,6 +8,7 @@
         <tr>
           <th>Benefit</th>
           <th>Coverage</th>
+          <th>Limit</th>
           <th>Explanation of benefit</th>
         </tr>
       </thead>
@@ -16,6 +17,7 @@
           <tr>
             <td><%= module_benefit.benefit.name %></td>
             <td><%= module_benefit.benefit_coverage %></td>
+            <td><%= module_benefit.benefit_limit %></td>
             <td><%= module_benefit.explanation_of_benefit %></td>
           </tr>
         <% end %>

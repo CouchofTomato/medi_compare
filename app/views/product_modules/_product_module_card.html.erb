@@ -61,7 +61,16 @@
                   <div class="field">
                     <%= product_module_benefit.label :benefit_coverage, class: 'label' %>
                     <div class="control">
-                      <%= product_module_benefit.text_field :benefit_coverage, class: 'input' %>
+                      <% @coverage_options.each do |option| %>
+                        <label for=<%= option %>><%= option.titleize %></label>
+                        <%= product_module_benefit.radio_button :benefit_coverage, option %>
+                      <% end %>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <%= product_module_benefit.label :benefit_limit, class: 'label' %>
+                    <div class="control">
+                      <%= product_module_benefit.text_field :benefit_limit, class: 'input' %>
                     </div>
                   </div>
                   <div class="field">
@@ -91,7 +100,16 @@
                 <div class="field">
                   <%= product_module_benefit.label :benefit_coverage, class: 'label' %>
                   <div class="control">
-                    <%= product_module_benefit.text_field :benefit_coverage, class: 'input' %>
+                    <% @coverage_options.each do |option| %>
+                      <label for=<%= option %>><%= option.titleize %></label>
+                      <%= product_module_benefit.radio_button :benefit_coverage, option %>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="field">
+                  <%= product_module_benefit.label :benefit_limit, class: 'label' %>
+                  <div class="control">
+                    <%= product_module_benefit.text_field :benefit_limit, class: 'input' %>
                   </div>
                 </div>
                 <div class="field">
