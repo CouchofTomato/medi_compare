@@ -32,11 +32,7 @@
               <%= form.label :category, class: 'label' %>
               <div class="control">
                 <div class="select is-primary">
-                  <%= form.select :category do %>
-                    <% product_module_categories.each do |category| %>
-                      <%= content_tag(:option, category.titleize, value: category) %>
-                    <% end %>
-                  <% end %>
+                  <%= form.select :category, options_for_select(product_module_categories.map { |category| [category.titleize, category] }, product_module.category) %>
                 </div>
               </div>
             </div>

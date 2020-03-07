@@ -17,11 +17,7 @@
             <%= form.label :category, class: 'label' %>
             <div class="control">
               <div class="select is-primary">
-                <%= form.select :category do %>
-                  <% @benefit_categories.each do |category| %>
-                    <%= content_tag(:option, category.titleize, value: category) %>
-                  <% end %>
-                <% end %>
+                <%= form.select :category, options_for_select(benefit_categories.map { |category| [category.titleize, category] }, benefit.category) %>
               </div>
             </div>
           </div>
