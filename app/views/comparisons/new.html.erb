@@ -59,7 +59,7 @@
               </tbody>
               <tbody id=<%= "collapsible-section-#{category}" %> class="is-collapsible" data-parent="accordian" data-allow-multiple="true">
                 <% @benefits[category].each do |benefit| %>
-                  <tr>
+                  <tr id="<%= benefit.id %>" class="benefit">
                     <td><%= benefit.name.titleize %></td>
                   </tr>
                 <% end %>

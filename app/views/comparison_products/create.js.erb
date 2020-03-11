@@ -13,3 +13,12 @@ document.getElementById('chosen-cover')
 document.getElementById('overall-sum-assured')
   .insertCell()
   .textContent = "<%= overall_sum_assured(@product_modules) %>"
+
+<% @benefits.each do |benefit| %>
+  {
+    let benefitRow = document.getElementById(<%= benefit.id %>)
+    document.getElementById(<%= benefit.id %>)
+    .insertCell()
+    .innerHTML = "<%= match_module_to_benefit(@decorated_product_module_benefits, benefit.id).icon.html_safe %>"
+  }
+<% end %>    
