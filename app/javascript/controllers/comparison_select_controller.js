@@ -4,6 +4,10 @@ import Rails from "@rails/ujs"
 export default class extends Controller {
   static targets = ["insurer", "product", "productModules"]
 
+  connect() {
+    this.resetForm()
+  }
+
   getProducts(event) {
     this.productTarget.length = 1
     this.productModulesTarget.innerHTML = ''
@@ -50,5 +54,11 @@ export default class extends Controller {
 
       }
     })
+  }
+
+  resetForm(event) {
+    this.insurerTarget.value = ''
+    this.productTarget.length = 1
+    this.productModulesTarget.innerHTML = ''
   }
 }

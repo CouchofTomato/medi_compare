@@ -5,3 +5,7 @@
 tbody {
   display: block
 }
+
+.comparison-table > tbody > tr > td {
+  width: 250px;
+}
