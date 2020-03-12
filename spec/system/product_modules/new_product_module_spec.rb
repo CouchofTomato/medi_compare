@@ -23,7 +23,8 @@ RSpec.describe 'adding a new Product Module', type: :system, js: true do
     fill_in 'product_module[name]', with: 'Gold'
     select 'Outpatient', from: 'product_module_category'
     fill_in 'product_module[sum_assured]', with: 'GBP 300,000'
-    fill_in 'Benefit coverage', with: 'Paid in full'
+    choose(option: 'paid_in_full')
+    fill_in 'Benefit limit', with: 'Paid in full'
     fill_in 'Explanation of benefit', with: 'Private room'
     click_on 'Create'
     expect(page).to have_content 'New Product Module Created!'
@@ -64,7 +65,8 @@ RSpec.describe 'adding a new Product Module', type: :system, js: true do
     fill_in 'product_module[name]', with: 'Gold'
     select 'Outpatient', from: 'product_module_category'
     fill_in 'product_module[sum_assured]', with: 'GBP 300,000'
-    fill_in 'Benefit coverage', with: 'Paid in full'
+    choose(option: 'paid_in_full')
+    fill_in 'Benefit limit', with: 'Paid in full'
     click_on 'Create'
     expect(page).to have_content 'Product Module could not be created'
     expect(page).to have_content 'Product module benefits explanation of benefit can\'t be blank'
