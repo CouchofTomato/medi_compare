@@ -16,8 +16,12 @@ document.getElementById('overall-sum-assured')
 
 <% @benefits.each do |benefit| %>
   {
-    document.getElementById(<%= benefit.id %>)
-    .insertCell()
-    .innerHTML = "<%= match_module_to_benefit(@decorated_product_module_benefits, benefit.id).icon.html_safe %>"
+    let el = document.getElementById(<%= benefit.id %>)
+    let cell = el
+                .insertCell()
+    cell.innerHTML = "<%= match_module_to_benefit(@decorated_product_module_benefits, benefit.id).icon.html_safe %>"
+    let icon = cell.firstChild
+    icon.classList.add("has-tooltip-right")
+    icon.setAttribute("data-tooltip", "<%= match_module_to_benefit(@decorated_product_module_benefits, benefit.id).benefit_limit %>")
   }
 <% end %>    
