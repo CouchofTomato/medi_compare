@@ -6,6 +6,6 @@ class NullProductModuleBenefit
   end
 
   def benefit_limit
-    'Not Covered'
+    'Not covered'
   end
 end
