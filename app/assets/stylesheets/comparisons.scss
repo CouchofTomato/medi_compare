@@ -3,11 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 tbody {
-  display: block;
+  text-align: left
 }
 
 .comparison-table > tbody > tr > td {
   width: 250px;
   min-width: 200px;
   text-align: center;
+  // overflow: hidden;
 }
