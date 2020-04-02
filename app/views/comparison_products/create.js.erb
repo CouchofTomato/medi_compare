@@ -22,6 +22,7 @@ document.getElementById('overall-sum-assured')
     cell.innerHTML = "<%= match_module_to_benefit(@decorated_product_module_benefits, benefit.id).icon.html_safe %>"
     let icon = cell.firstChild
     icon.classList.add("has-tooltip-top")
+    icon.classList.add("has-tooltip-multiline")
     icon.setAttribute("data-tooltip", "<%= match_module_to_benefit(@decorated_product_module_benefits, benefit.id).benefit_limit %>")
   }
 <% end %>    

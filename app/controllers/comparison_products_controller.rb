@@ -9,14 +9,14 @@ class ComparisonProductsController < ApplicationController
     #     product_modules: selected_modules(params[:product_modules])
     #   }
     # )
-    @insurer = Insurer.find(params[:insurer])
-    @product = Product.find(params[:product])
+    @comparison_products = comparison_product_params.to_h
+    @insurer = Insurer.find(@comparison_products['insurer'])
+    @product = Product.find(@comparison_products['product'])
     @benefits = Benefit.all
     @product_modules = ProductModule
                        .includes(product_module_benefits: :benefit)
-                       .where(id: selected_modules(params[:product_modules]))
+                       .where(id: selected_modules(@comparison_products['product_modules']))
     @decorated_product_module_benefits = decorated_product_modules(@product_modules)
-
     respond_to do |format|
       format.js 
     end
