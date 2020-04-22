@@ -29,41 +29,48 @@
       </div>
     </div>
     <div class="table-container column">
-      <table class="table comparison-table">
-        <tbody>
-          <tr>
-            <td colspan="100%"><a href="#collapsible-section-1" data-action="collapse">Product Details</a></td>
-          </tr>
-        </tbody>
-        <tbody id="collapsible-section-1" class="is-collapsible" data-parent="accordian" data-allow-multiple="true">
-          <tr id="insurer">
-            <td>Insurer</td>
-          </tr>
-          <tr id="product">
-            <td>Product</td>
-          </tr>
-          <tr id="chosen-cover">
-            <td>Chosen Cover</td>
-          </tr>
-          <tr id="overall-sum-assured">
-            <td>Overall Sum Assured</td>
-          </tr>
-        </tbody>
-        <% @benefit_categories.each do |category| %>
+      <div data-controller="comparison-table">
+        <table class="table comparison-table" data-target="comparison-table.comparisonTable">
           <tbody>
-            <tr>
-              <td colspan="100%"><a href=<%= "#collapsible-section-#{category}" %> data-action="collapse"><%= category.titleize %></a></td>
+            <tr id="delete-column" data-target="comparison-table.deleteColumn">
+              <td></td>
             </tr>
           </tbody>
-          <tbody id=<%= "collapsible-section-#{category}" %> class="is-collapsible" data-parent="accordian" data-allow-multiple="true">
-            <% @benefits[category].each do |benefit| %>
-              <tr id="<%= benefit.id %>" class="benefit">
-                <td><%= benefit.name.titleize %></td>
-              </tr>
-            <% end %>
+          <tbody>
+            <tr class="dropdown">
+              <td colspan="100%"><a href="#collapsible-section-1" data-action="collapse">Product Details</a></td>
+            </tr>
           </tbody>
-        <% end %>
-      </table>
+          <tbody id="collapsible-section-1" class="is-collapsible" data-parent="accordian" data-allow-multiple="true">
+            <tr id="insurer">
+              <td>Insurer</td>
+            </tr>
+            <tr id="product">
+              <td>Product</td>
+            </tr>
+            <tr id="chosen-cover">
+              <td>Chosen Cover</td>
+            </tr>
+            <tr id="overall-sum-assured">
+              <td>Overall Sum Assured</td>
+            </tr>
+          </tbody>
+          <% @benefit_categories.each do |category| %>
+            <tbody>
+              <tr class="dropdown">
+                <td colspan="100%"><a href=<%= "#collapsible-section-#{category}" %> data-action="collapse"><%= category.titleize %></a></td>
+              </tr>
+            </tbody>
+            <tbody id=<%= "collapsible-section-#{category}" %> class="is-collapsible" data-parent="accordian" data-allow-multiple="true">
+              <% @benefits[category].each do |benefit| %>
+                <tr id="<%= benefit.id %>" class="benefit">
+                  <td><%= benefit.name.titleize %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
     </div>
     <div class="column is-one-fifth">
     </div>
