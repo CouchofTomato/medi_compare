@@ -1,3 +1,7 @@
+document.getElementById('selected-product-details')
+  .insertCell()
+  .setAttribute("data-params", JSON.stringify(<%= @comparison_products.to_json.html_safe %>))
+
 document.getElementById('delete-column')
   .insertCell()
   .innerHTML = '<button class="button is-danger" data-action="click->comparison-table#deleteColumn"><span><i class="fas fa-times"></i></span></button>'
