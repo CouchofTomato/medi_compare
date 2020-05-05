@@ -8,7 +8,15 @@ class ComparisonsController < ApplicationController
     @benefit_categories = Benefit::CATEGORY_NAMES.select { |category| @benefits.keys.include? category }
   end
 
+  def show
+    puts params
+  end
+
   private
+
+  def comparison_params
+    params.require(:comparison).permit(:selected_products)
+  end
 
   def instantiate_benefit_categories
     @benefit_categories = Benefit::CATEGORY_NAMES

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
 
+  post '/comparisons/show', to: 'comparisons#show'
+
   resources :benefits
   resources :insurers do
     resources :products

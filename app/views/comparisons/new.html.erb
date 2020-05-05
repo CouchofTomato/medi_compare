@@ -1,5 +1,5 @@
 <section class="section">
-  <div class="columns">
+  <div class="columns" data-controller="comparison-table-export">
     <div class="column is-one-fifth">
       <h3 class="title is-3">Product Picker</h3>
       <div data-controller="comparison-select">
@@ -77,7 +77,9 @@
         </table>
       </div>
     </div>
-    <div class="column is-one-fifth">
+    <div class="column is-2 has-text-centered">
+      <h3 class="subtitle is-3">Export</h3>
+      <button class="button" data-action="click->comparison-table-export#excelExport">Excel</button>
     </div>
   </div>
 </section>

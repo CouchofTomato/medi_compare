@@ -1,6 +1,9 @@
-document.getElementById('selected-product-details')
-  .insertCell()
-  .setAttribute("data-params", JSON.stringify(<%= @comparison_products.to_json.html_safe %>))
+{
+  let productDetailsRow = document.getElementById('selected-product-details')
+  let el = productDetailsRow.insertCell()
+  el.setAttribute("data-params", JSON.stringify(<%= @comparison_products.to_json.html_safe %>))
+  el.setAttribute("data-target", "comparison-table-export.param")
+}
 
 document.getElementById('delete-column')
   .insertCell()
