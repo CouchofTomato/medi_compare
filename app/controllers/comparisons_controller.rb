@@ -9,7 +9,6 @@ class ComparisonsController < ApplicationController
   end
 
   def show
-    puts params
   end
 
   private

@@ -5,9 +5,9 @@ export default class extends Controller {
   static targets = ["param"]
 
   excelExport(event) {
-    let formattedParams = this.formattedSelectedProductParams()
+    let queryParams = this.parameterise()
     const csrfToken = document.querySelector("[name='csrf-token']").content
-    fetch(`/comparisons/show?${formattedParams}.xlsl`, {
+    fetch(`/comparisons/show?${queryParams}`, {
       method: "get",
       headers: {
         "X-CSRF-Token": csrfToken,
@@ -15,16 +15,20 @@ export default class extends Controller {
     })
   }
 
-  formattedSelectedProductParams() {
-    return this.getSelectedProducts().map(param => {
-      return Object.entries(param).map(([key, val]) => `selected_products[][${key}]=${JSON.stringify(val)}`).join('&')
+  parameterise() {
+    return this.paramTargets.map(target => {
+      const dataParams = JSON.parse(target.getAttribute("data-params"))
+      return this.queryString(dataParams)
     }).join("&")
-
   }
 
-  getSelectedProducts() {
-    return this.paramTargets.map(target => {
-      return JSON.parse(target.getAttribute("data-params"))
-    })
+  queryString(dataParams) {
+    return Object.entries(dataParams).map(([key, val]) => {
+      if(typeof val === "object") {
+        return Object.entries(val).map(([key2, val2]) => encodeURI(`selected_products[][${key}][${key2}]=${val2}`)).join('&')
+      } else {
+        return(encodeURI(`selected_products[][${key}]=${val}`))
+      }
+    }).join("&")
   }
 }
