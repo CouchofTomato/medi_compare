@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
-  validates_presence_of :name
+  validates :name, presence: true
   belongs_to :insurer
-  has_many :product_modules
+  has_many :product_modules, dependent: :destroy
 
   def self.search(search_term)
     if search_term

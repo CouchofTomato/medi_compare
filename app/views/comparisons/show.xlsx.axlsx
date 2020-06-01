@@ -1,0 +1,6 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Comparison") do |sheet|
+  @chosen_products.each do |product|
+    sheet.add_row [product.insurer.name, product.product.name]
+  end
+end

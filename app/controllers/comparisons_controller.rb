@@ -9,15 +9,38 @@ class ComparisonsController < ApplicationController
   end
 
   def show
+    @selected_products = params[:selected_products]
+    @chosen_products = @selected_products.map do |selected_product|
+      insurer = Insurer.find(selected_product[:insurer])
+      product = Product.find(selected_product[:product])
+      product_modules = ProductModule.includes(product_module_benefits: :benefit).find(selected_modules(selected_product[:product_modules]))
+      SelectedProduct.new(insurer, product, product_modules)
+    end
+    respond_to do |format|
+      format.xlsx
+    end
   end
 
   private
 
   def comparison_params
-    params.require(:comparison).permit(:selected_products)
+    params.require(:comparison).permit(
+      selected_products: [:insurer, :product,
+                          product_modules: %i[core
+                                              outpatient
+                                              medicines_and_appliances
+                                              wellness
+                                              maternity
+                                              dental_and_optical
+                                              evacuation_and_repatriation]]
+    )
   end
 
   def instantiate_benefit_categories
     @benefit_categories = Benefit::CATEGORY_NAMES
+  end
+
+  def selected_modules(modules)
+    modules.values.flatten
   end
 end

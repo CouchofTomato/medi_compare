@@ -1,18 +1,13 @@
 import { Controller  } from "stimulus"
-import Rails from "@rails/ujs"
 
 export default class extends Controller {
   static targets = ["param"]
 
   excelExport(event) {
-    let queryParams = this.parameterise()
+    const queryParams = this.parameterise()
     const csrfToken = document.querySelector("[name='csrf-token']").content
-    fetch(`/comparisons/show?${queryParams}`, {
-      method: "get",
-      headers: {
-        "X-CSRF-Token": csrfToken,
-      },
-    })
+    const url = `/comparisons/show.xlsx?${queryParams}`
+    window.location = url
   }
 
   parameterise() {
