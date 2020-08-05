@@ -8,4 +8,12 @@ class NullProductModuleBenefit
   def benefit_limit
     'Not covered'
   end
+
+  def explanation_of_benefit
+    'Not Covered'
+  end
+
+  def benefit_coverage
+    'not_covered'
+  end
 end

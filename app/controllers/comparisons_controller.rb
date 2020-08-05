@@ -9,13 +9,15 @@ class ComparisonsController < ApplicationController
   end
 
   def show
-    @selected_products = params[:selected_products]
-    @chosen_products = @selected_products.map do |selected_product|
+    selected_product_params = params[:selected_products]
+    @selected_products = selected_product_params.map do |selected_product|
       insurer = Insurer.find(selected_product[:insurer])
       product = Product.find(selected_product[:product])
       product_modules = ProductModule.includes(product_module_benefits: :benefit).find(selected_modules(selected_product[:product_modules]))
       SelectedProduct.new(insurer, product, product_modules)
     end
+    @grouped_benefits = Benefit.group_by_category
+    @benefit_categories = Benefit::CATEGORY_NAMES.select { |category| @grouped_benefits.keys.include? category }
     respond_to do |format|
       format.xlsx
     end

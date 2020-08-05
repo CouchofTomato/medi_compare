@@ -32,6 +32,7 @@ gem 'devise', '~> 4.7'
 gem 'devise_invitable', '~> 2.0'
 gem 'caxlsx'
 gem 'caxlsx_rails'
+gem 'axlsx_styler'
 gem 'rubyzip'
 
 group :development, :test do

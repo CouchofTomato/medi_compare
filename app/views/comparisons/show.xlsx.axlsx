@@ -1,6 +1,92 @@
+# frozen_string_literal: true
+
 wb = xlsx_package.workbook
-wb.add_worksheet(name: "Comparison") do |sheet|
-  @chosen_products.each do |product|
-    sheet.add_row [product.insurer.name, product.product.name]
+
+category_start = 5
+category_end = nil
+category_positions = []
+
+# styles
+center_text = { alignment: { horizontal: :center, vertical: :center } }
+
+# cell styles indicating cell coverage
+paid_in_full_style = wb.styles.add_style(bg_color: '55de4e')
+capped_benefit_style = wb.styles.add_style(bg_color: 'de9d4e')
+not_covered_style = wb.styles.add_style(bg_color: 'de4e4e')
+
+# cell styles for benefit categories
+inpatient = wb.styles.add_style(bg_color: 'b7ede6')
+outpatient = wb.styles.add_style(bg_color: 'b7d7ed')
+therapists = wb.styles.add_style(bg_color: 'b7bced')
+medicines_and_appliances = wb.styles.add_style(bg_color: 'd3da6a')
+wellness = wb.styles.add_style(bg_color: 'daa76a')
+evacuation_and_repatriation = wb.styles.add_style(bg_color: 'e29bd1')
+maternity = wb.styles.add_style(bg_color: 'a2b6a9')
+dental = wb.styles.add_style(bg_color: 'c9e1fa')
+optical = wb.styles.add_style(bg_color: 'fae7c9')
+additional = wb.styles.add_style(bg_color: 'cac9fa')
+
+
+benefit_coverage_styles = {
+  paid_in_full: paid_in_full_style,
+  capped_benefit: capped_benefit_style,
+  not_covered: not_covered_style
+}
+
+benefit_category_styles = {
+  inpatient: inpatient,
+  outpatient: outpatient,
+  therapists: therapists,
+  medicines_and_appliances: medicines_and_appliances,
+  wellness: wellness,
+  evacuation_and_repatriation: evacuation_and_repatriation,
+  maternity: maternity,
+  dental: dental,
+  optical: optical,
+  additional: additional
+}
+
+wb.add_worksheet(name: 'Comparison') do |sheet|
+  # headers
+  sheet.add_row [nil, nil, *@selected_products.map { |product| product.insurer.name }]
+  sheet.add_row [nil, nil, *@selected_products.map { |product| product.product.name }]
+  sheet.add_row [nil, nil, *@selected_products.map(&:product_module_names)]
+  sheet.add_row [nil, nil, *@selected_products.map(&:overall_sum_assured)]
+
+  # benefits
+  category_starting_row = category_start
+
+  @benefit_categories.each do |category|
+    category_length = @grouped_benefits[category].length
+    @grouped_benefits[category].each do |benefit|
+      category_colour = benefit_category_styles[category.to_sym]
+      row_styles = [category_colour, category_colour]
+      selected_product_benefits = @selected_products.map do |product|
+        matched_benefit = product.module_benefits.find { |module_benefit| module_benefit.benefit_id == benefit.id } || NullProductModuleBenefit.new
+        row_styles << benefit_coverage_styles[(matched_benefit.benefit_coverage).to_sym]
+        matched_benefit.explanation_of_benefit
+      end
+      sheet.add_row [category.titleize, benefit.name.titleize, *selected_product_benefits], style: row_styles
+    end
+
+    # merge category cells
+    next_category_start = category_starting_row + category_length
+    category_end = next_category_start - 1
+    category_cells = "A#{category_starting_row}:A#{category_end}"
+    category_positions << category_cells
+    sheet.merge_cells(category_cells)
+    category_starting_row = next_category_start
   end
+
+  # columns widths
+  number_of_selected_products = @selected_products.length
+  product_column_widths = Array.new(number_of_selected_products) { 40 }
+  sheet.column_widths 25, 25, *product_column_widths
+
+  # apply styles
+  sheet.add_style "A#{category_start}:A#{category_end}", center_text
+  sheet.add_style "B#{category_start}:B#{category_end}", center_text
+  # category_positions.each do |category_position|
+  #   sheet.add_border
+  # end
 end
